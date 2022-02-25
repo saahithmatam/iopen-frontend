@@ -80,10 +80,14 @@ class userportal extends Component {
         <h5 class="home-text">  <MDBIcon icon="dice-d20" size="2x"/> Powered by <b>IOpen Innovations</b></h5>
         <br/>
         <a text-align="left" href = "/hotelportal"><button><MDBIcon icon="stream" size="2x"/></button></a>
-        <br />
-        <br/>
+        <form action="/refreshuser" method="POST" id="refreshuser">
+            <input type="hidden" value={hits.room} name="roominfo" id="roominfo"/>
+            <button type="submit" form="refreshuser">Refresh User</button>
+        </form>
         <br/>
         <h1 class="roomno-display">Room: {hits.room}</h1>
+        <h1>Key: {hits.key}</h1>
+        <h1>User: {hits.user}</h1>
         <a><button onClick={refreshPage}><MDBIcon icon="sync" size="1x"/></button></a>
         <br/>
         <br/>

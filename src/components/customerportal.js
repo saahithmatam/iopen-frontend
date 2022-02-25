@@ -23,7 +23,7 @@ class customerportal extends Component {
   
   
   componentDidMount() {
-    const room = this.props.location.state.room;
+    const room = this.props.match.params.room;
     console.log(room)
     fetch('/customerportal/'+room)
       .then(response => response.json())

@@ -42,12 +42,23 @@ class usersignin extends React.Component {
              <br/>
         <pre>
             </pre>
-        
-          <input placeholder="password" value = {this.state.password.password} onChange={this.handlePasswordChanged.bind(this)} type="text" id="pass" name="pass"/>
-          <Link type = "submit" form="pass" to={{
+          <input placeholder="firstname" type="text" id="firstname" name="firstname" />
+          <br/>
+          <br />
+          <input placeholder="lastname" type="text" id="lastname" name="lastname" />
+          <br/>
+          <br/>
+          <input placeholder="Departure Date" type="text" id="date" name="date" />
+          <br/>
+          <br/>
+          <input placeholder="room key" value = {this.state.password.password} onChange={this.handlePasswordChanged.bind(this)} type="text" id="pass" name="pass"/>
+          <br />
+          <br />
+          <button type = "submit" form="pass">Submit</button>
+          {/* <Link type = "submit" form="pass" to={{
                                 pathname: "/customerportal/"+this.state.password.password,
                                 state: { room: this.state.password.password} 
-                              }}><br/><button ><MDBIcon icon="sign-in-alt" /></button></Link>
+                              }}><br/><button ><MDBIcon icon="sign-in-alt" /></button></Link> */}
           </form>
         </div>
     );
