@@ -84,7 +84,7 @@ function App() {
         {/* This route is for home component
         with exact path "/", in component props
         we passes the imported component*/}
-        <Route path="/usersignin/error" component={error} />
+        <Route path="/error" component={error} />
           {/* This route is for home component
         with exact path "/", in component props
         we passes the imported component*/}
