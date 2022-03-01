@@ -2,7 +2,7 @@ import React from "react";
 // importing Link from react-router-dom to navigate to
 // different end points.
 import { Link } from "react-router-dom";
-import './buttonstyle.css'
+import './styles/buttonstyle.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';

@@ -19,7 +19,7 @@ import activerooms from "./views/activerooms/activerooms"
 // import About component
 import hotelportal from "./views/hotelportal/hotelportal";
 
-import Home from "./components/home";
+import Home from "./views/home/home";
 
 import userportal from "./views/userportal/userportal";
 
@@ -27,7 +27,7 @@ import usersignin from "./views/usersignin/usersignin";
 
 import customerportal from "./views/customerportal/customerportal";
 
-import error from "./components/error";
+import error from "./util/error";
 
 import hotelportalrooms from './views/hotelportalrooms/hotelportalrooms';
 
