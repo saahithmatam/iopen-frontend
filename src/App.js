@@ -13,23 +13,23 @@ import { css } from "@emotion/react";
 
 
 // import Home component
-import createportal from "./components/createportal";
+import createportal from "./views/createportal/createportal";
 
-import activerooms from "./components/activerooms"
+import activerooms from "./views/activerooms/activerooms"
 // import About component
-import hotelportal from "./components/hotelportal";
+import hotelportal from "./views/hotelportal/hotelportal";
 
 import Home from "./components/home";
 
-import userportal from "./components/userportal";
+import userportal from "./views/userportal/userportal";
 
-import usersignin from "./components/usersignin";
+import usersignin from "./views/usersignin/usersignin";
 
-import customerportal from "./components/customerportal";
+import customerportal from "./views/customerportal/customerportal";
 
 import error from "./components/error";
 
-import hotelportalrooms from './components/hotelportalrooms';
+import hotelportalrooms from './views/hotelportalrooms/hotelportalrooms';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
