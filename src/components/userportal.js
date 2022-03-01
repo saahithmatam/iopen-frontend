@@ -5,12 +5,18 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import './buttonstyle.css';
+import { css } from "@emotion/react";
+import RingLoader from "react-spinners/RingLoader";
 
 
 
 
-
-
+const override = css`
+  display: block;
+  margin: 0 auto;
+  margin-top: 170px;
+  border-color: red;
+`;
 
 
 class userportal extends Component {
@@ -38,6 +44,7 @@ class userportal extends Component {
     let temperature;
     let motion;
     let detect;
+    let go;
 
     if(hits.door === "CLOSED"){
         door_real = <MDBIcon icon="door-closed" size="3x" />;
@@ -57,10 +64,12 @@ class userportal extends Component {
     }
         
     if(hits.motion ===  "True"){
+            go = 1
             motion = <MDBIcon icon="user-alt" size="3x"/>;
             detect = "Occupied";
         }
     else if(hits.motion ===  "False"){ 
+        go = 1
         motion = <MDBIcon icon="user-slash" size="3x"/>;
         detect = "Vacant";
     }
@@ -73,44 +82,50 @@ class userportal extends Component {
     const refreshPage = ()=>{
         window.location.reload();
     }
-    console.log(hits)
+    
 
-    if(hits){return (
-        <div>
-        <h5 class="home-text">  <MDBIcon icon="dice-d20" size="2x"/> Powered by <b>IOpen Innovations</b></h5>
-        <br/>
-        <a text-align="left" href = "/hotelportal"><button><MDBIcon icon="stream" size="2x"/></button></a>
-        <form action="/refreshuser" method="POST" id="refreshuser">
-            <input type="hidden" value={hits.room} name="roominfo" id="roominfo"/>
-            <button type="submit" form="refreshuser">Refresh User</button>
-        </form>
-        <br/>
-        <h1 class="roomno-display">Room: {hits.room}</h1>
-        <h1>Key: {hits.key}</h1>
-        <h1>User: {hits.user}</h1>
-        <a><button onClick={refreshPage}><MDBIcon icon="sync" size="1x"/></button></a>
-        <br/>
-        <br/>
-        <br/>
-        <div>
-        <h2>{motion}<br/><h5>{detect}</h5></h2>
-        <br />
-        <br />
-        <h2>{temperature}</h2>
-        <br />
-        <br />
-        <h2>{door_real}<br/><h5>{hits.door}</h5></h2>
-        <br />
-        <br />
-        <h2><MDBIcon icon="clock" size="3x" /> <br/>{hits.time}<br/><h5>(last updated door)</h5></h2>
-        <br />
-        </div>
-        </div>
-    );}
+    if(go>0){
+        return (
+            <div>
+            <h5 class="home-text">  <MDBIcon icon="dice-d20" size="2x"/> Powered by <b>IOpen Innovations</b></h5>
+            <br/>
+            <a text-align="left" href = "/hotelportal"><button><MDBIcon icon="stream" size="2x"/></button></a>
+            <form action="/refreshuser" method="POST" id="refreshuser">
+                <input type="hidden" value={hits.room} name="roominfo" id="roominfo"/>
+                <button type="submit" form="refreshuser">Refresh User</button>
+            </form>
+            <br/>
+            <h1 class="roomno-display">Room: {hits.room}</h1>
+            <h1>Key: {hits.key}</h1>
+            <h1>User: {hits.user}</h1>
+            <a><button onClick={refreshPage}><MDBIcon icon="sync" size="1x"/></button></a>
+            <br/>
+            <br/>
+            <br/>
+            <div>
+            <h2>{motion}<br/><h5>{detect}</h5></h2>
+            <br />
+            <br />
+            <h2>{temperature}</h2>
+            <br />
+            <br />
+            <h2>{door_real}<br/><h5>{hits.door}</h5></h2>
+            <br />
+            <br />
+            <h2><MDBIcon icon="clock" size="3x" /> <br/>{hits.time}<br/><h5>(last updated door)</h5></h2>
+            <br />
+            </div>
+            </div>
+    );
+    }
     else{
-        <div>
-        <h1>WRONG PASSWORD</h1>
-        </div>
+        return(
+            <div>
+            <RingLoader css={override} size={400} />
+            <br />
+            <h5>  <MDBIcon icon="dice-d20" size="2x"/> Powered by <b>IOpen Innovations</b></h5>
+            </div>
+        );
     }
 
     
