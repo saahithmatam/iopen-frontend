@@ -40,7 +40,7 @@ class activerooms extends Component {
   }
   render() {
     const { hits } = this.state;
-    if(hits.length>0){
+    if(hits.length>=1){
         return (
             <body>
               <div>
@@ -69,6 +69,21 @@ class activerooms extends Component {
                   </li>
                   )}
               </ul>
+              </div>
+            </body>
+          );
+    }
+    else if(hits.length === 0){
+        return (
+            <body>
+              <div>
+              <h5 class="home-text">  <MDBIcon icon="dice-d20" size="2x"/> Powered by <b>IOpen Innovations</b></h5>
+              <br/>
+              <br/>
+              <a text-align="left" href = "/hotelportal"><button><MDBIcon icon="stream" size="2x"/></button></a>
+              <br />
+              <br />
+              <h1>No Active Rooms</h1> 
               </div>
             </body>
           );
