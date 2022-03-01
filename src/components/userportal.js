@@ -40,6 +40,7 @@ class userportal extends Component {
   }
   render() {
     const { hits } = this.state;
+    console.log(hits)
     let door_real;
     let temperature;
     let motion;
@@ -47,11 +48,17 @@ class userportal extends Component {
     let go;
 
     if(hits.door === "CLOSED"){
+        go = 1
         door_real = <MDBIcon icon="door-closed" size="3x" />;
        }
     else if(hits.door === "OPEN"){ 
+        go = 1
         door_real = <MDBIcon icon="door-open" size="3x" />;
        }
+    else if(hits.door === "Not Active"){
+        go = 1
+        door_real = <MDBIcon icon="door-closed" size="3x" />;
+    }
     else{
         door_real = <MDBIcon icon="door-closed" size="3x" />;
     }
