@@ -48,85 +48,86 @@ const override = css`
 // import ContactUs component
 function App() {
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
       
-    useEffect(() => {
-      // Loading function to load data or 
-      // fake it using setTimeout;
-      const loadData = async () => {
+  //   useEffect(() => {
+  //     // Loading function to load data or 
+  //     // fake it using setTimeout;
+  //     const loadData = async () => {
   
-        // Wait for two second
-        await new Promise((r) => setTimeout(r, 2000));
+  //       // Wait for two second
+  //       await new Promise((r) => setTimeout(r, 2000));
   
-        // Toggle loading state
-        setLoading((loading) => !loading);
-      };
+  //       // Toggle loading state
+  //       setLoading((loading) => !loading);
+  //     };
         
-      loadData();
-    }, [])
-    if (loading) {
-      return (
-        <div>
-        <RingLoader css={override} size={400} />
-        <br />
-        <h5>  <MDBIcon icon="dice-d20" size="2x"/> Powered by <b>IOpen Innovations</b></h5>
-        </div>
-      );  
-  }
-  else{
-    return (
-      <>
-      {/* This is the alias of BrowserRouter i.e. Router */}
-      <Router>
-        <Switch>
+  //     loadData();
+  //   }, [])
+  //   if (loading) {
+  //     return (
+  //       <div>
+  //       <RingLoader css={override} size={400} />
+  //       <br />
+  //       <h5>  <MDBIcon icon="dice-d20" size="2x"/> Powered by <b>IOpen Innovations</b></h5>
+  //       </div>
+  //     );  
+  // }
+  // else{
+  return (
+    <>
+    {/* This is the alias of BrowserRouter i.e. Router */}
+    <Router>
+      <Switch>
+      {/* This route is for home component
+      with exact path "/", in component props
+      we passes the imported component*/}
+      <Route path="/createportal" component={createportal} />
+      {/* This route is for home component
+      with exact path "/", in component props
+      we passes the imported component*/}
+      <Route path="/activerooms" component={activerooms} />
+      {/* This route is for home component
+      with exact path "/", in component props
+      we passes the imported component*/}
+      <Route path="/error" component={error} />
         {/* This route is for home component
-        with exact path "/", in component props
-        we passes the imported component*/}
-        <Route path="/createportal" component={createportal} />
-        {/* This route is for home component
-        with exact path "/", in component props
-        we passes the imported component*/}
-        <Route path="/activerooms" component={activerooms} />
-        {/* This route is for home component
-        with exact path "/", in component props
-        we passes the imported component*/}
-        <Route path="/error" component={error} />
-          {/* This route is for home component
-        with exact path "/", in component props
-        we passes the imported component*/}
-        <Route path="/customerportal/:room" component={customerportal} />
-        {/* This route is for home component
-        with exact path "/", in component props
-        we passes the imported component*/}
-        <Route path="/usersignin" component={usersignin} />
+      with exact path "/", in component props
+      we passes the imported component*/}
+      <Route path="/customerportal/:room" component={customerportal} />
+      {/* This route is for home component
+      with exact path "/", in component props
+      we passes the imported component*/}
+      <Route path="/usersignin" component={usersignin} />
 
-        {/* This route is for home component
-        with exact path "/", in component props
-        we passes the imported component*/}
-        <Route path="/userportal" component={userportal} />
-          
-        {/* This route is for about component
-        with exact path "/about", in component
-        props we passes the imported component*/}
-        <Route path="/hotelportal" component={hotelportal} />
-        {/* This route is for about component
-        with exact path "/about", in component
-        props we passes the imported component*/}
-        <Route path="/hotelportalrooms" component={hotelportalrooms} />
-          
-        {/* This route is for contactus component
-        with exact path "/contactus", in
-        component props we passes the imported component*/}
-        <Route path="/" component={Home} />
-          
-        {/* If any route mismatches the upper
-        route endpoints then, redirect triggers
-        and redirects app to home component with to="/" */}
-        </Switch>
-      </Router>
-      </>
-    );
+      {/* This route is for home component
+      with exact path "/", in component props
+      we passes the imported component*/}
+      <Route path="/userportal" component={userportal} />
+        
+      {/* This route is for about component
+      with exact path "/about", in component
+      props we passes the imported component*/}
+      <Route path="/hotelportal" component={hotelportal} />
+      {/* This route is for about component
+      with exact path "/about", in component
+      props we passes the imported component*/}
+      <Route path="/hotelportalrooms" component={hotelportalrooms} />
+        
+      {/* This route is for contactus component
+      with exact path "/contactus", in
+      component props we passes the imported component*/}
+      <Route path="/" component={Home} />
+        
+      {/* If any route mismatches the upper
+      route endpoints then, redirect triggers
+      and redirects app to home component with to="/" */}
+      </Switch>
+    </Router>
+    </>
+  );
   }
-}
+
+
 
 export default App;

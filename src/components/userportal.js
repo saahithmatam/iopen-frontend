@@ -99,7 +99,7 @@ class userportal extends Component {
             <a text-align="left" href = "/hotelportal"><button><MDBIcon icon="stream" size="2x"/></button></a>
             <form action="/refreshuser" method="POST" id="refreshuser">
                 <input type="hidden" value={hits.room} name="roominfo" id="roominfo"/>
-                <button type="submit" form="refreshuser">Refresh User</button>
+                <button type="submit" form="refreshuser">RESET USER</button>
             </form>
             <br/>
             <h1 class="roomno-display">Room: {hits.room}</h1>
