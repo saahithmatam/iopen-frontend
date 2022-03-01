@@ -6,7 +6,18 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import './buttonstyle.css';
 
+import { css } from "@emotion/react";
+import RingLoader from "react-spinners/RingLoader";
 
+
+
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  margin-top: 170px;
+  border-color: red;
+`;
 
 
 
@@ -35,6 +46,7 @@ class customerportal extends Component {
     let temperature;
     let motion;
     let detect;
+    let go;
 
     if(hits.door === "CLOSED"){
         door_real = <MDBIcon icon="door-closed" size="3x" />;
@@ -54,10 +66,12 @@ class customerportal extends Component {
     }
         
     if(hits.motion ===  "True"){
+            go = 1
             motion = <MDBIcon icon="user-alt" size="3x"/>;
             detect = "Occupied";
         }
     else if(hits.motion ===  "False"){ 
+        go = 1
         motion = <MDBIcon icon="user-slash" size="3x"/>;
         detect = "Vacant";
     }
@@ -72,7 +86,7 @@ class customerportal extends Component {
     }
     console.log(hits)
 
-    if(hits){return (
+    if(go>0){return (
         <div>
         <h5 class="home-text">  <MDBIcon icon="dice-d20" size="2x"/> Powered by <b>IOpen Innovations</b></h5>
         <h1 class="roomno-display">Room: {hits.room}</h1>
@@ -96,9 +110,13 @@ class customerportal extends Component {
         </div>
     );}
     else{
-        <div>
-        <h1>WRONG PASSWORD</h1>
-        </div>
+        return(
+            <div>
+            <RingLoader css={override} size={400} />
+            <br />
+            <h5>  <MDBIcon icon="dice-d20" size="2x"/> Powered by <b>IOpen Innovations</b></h5>
+            </div>
+        );
     }
 
     
