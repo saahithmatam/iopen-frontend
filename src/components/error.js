@@ -50,9 +50,6 @@ class usersignin extends React.Component {
           <input placeholder="lastname" type="text" id="lastname" name="lastname" />
           <br/>
           <br/>
-          <input placeholder="Departure Date" type="text" id="date" name="date" />
-          <br/>
-          <br/>
           <input placeholder="room key" value = {this.state.password.password} onChange={this.handlePasswordChanged.bind(this)} type="text" id="pass" name="pass"/>
           <br />
           <br />

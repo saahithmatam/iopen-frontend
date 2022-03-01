@@ -35,8 +35,9 @@ class customerportal extends Component {
   
   componentDidMount() {
     const room = this.props.match.params.room;
+    const password = this.props.match.params.password;
     console.log(room)
-    fetch('/customerportal/'+room)
+    fetch('/customerportal/'+password+'/'+room)
       .then(response => response.json())
       .then(data => this.setState({ hits: data }));
   }
@@ -115,6 +116,7 @@ class customerportal extends Component {
             <RingLoader css={override} size={400} />
             <br />
             <h5>  <MDBIcon icon="dice-d20" size="2x"/> Powered by <b>IOpen Innovations</b></h5>
+            <h4>If your portal takes more than 10 seconds to load, your link may have been deactivated. Please check with the front desk.</h4>
             </div>
         );
     }

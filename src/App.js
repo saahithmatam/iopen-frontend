@@ -94,7 +94,7 @@ function App() {
         {/* This route is for home component
       with exact path "/", in component props
       we passes the imported component*/}
-      <Route path="/customerportal/:room" component={customerportal} />
+      <Route path="/customerportal/:password/:room" component={customerportal} />
       {/* This route is for home component
       with exact path "/", in component props
       we passes the imported component*/}
