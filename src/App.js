@@ -14,6 +14,8 @@ import { css } from "@emotion/react";
 
 // import Home component
 import createportal from "./components/createportal";
+
+import activerooms from "./components/activerooms"
 // import About component
 import hotelportal from "./components/hotelportal";
 
@@ -81,6 +83,10 @@ function App() {
         with exact path "/", in component props
         we passes the imported component*/}
         <Route path="/createportal" component={createportal} />
+        {/* This route is for home component
+        with exact path "/", in component props
+        we passes the imported component*/}
+        <Route path="/activerooms" component={activerooms} />
         {/* This route is for home component
         with exact path "/", in component props
         we passes the imported component*/}
