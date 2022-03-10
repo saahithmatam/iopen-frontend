@@ -27,6 +27,8 @@ import usersignin from "./views/usersignin/usersignin";
 
 import customerportal from "./views/customerportal/customerportal";
 
+import users from "./views/users/users";
+
 import error from "./util/error";
 
 import hotelportalrooms from './views/hotelportalrooms/hotelportalrooms';
@@ -83,6 +85,10 @@ function App() {
       with exact path "/", in component props
       we passes the imported component*/}
       <Route path="/createportal" component={createportal} />
+      {/* This route is for home component
+      with exact path "/", in component props
+      we passes the imported component*/}
+      <Route path="/users" component={users} />
       {/* This route is for home component
       with exact path "/", in component props
       we passes the imported component*/}

@@ -36,6 +36,7 @@ class usersignin extends React.Component {
         <br/>
         <br/>
         <h1>Sign In</h1>
+        <h6>*We will send you your customized user portal shortly after clicking submit*</h6>
         <form action="/usersignin" method="POST" id="pass">
             <br/>
             <br/>
@@ -46,6 +47,9 @@ class usersignin extends React.Component {
           <br/>
           <br />
           <input placeholder="lastname" type="text" id="lastname" name="lastname" />
+          <br/>
+         123 <br/>
+          <input placeholder="phonenumber" type="text" id="phonenumber" name="phonenumber" />
           <br/>
           <br/>
           <input placeholder="room key" value = {this.state.password.password} onChange={this.handlePasswordChanged.bind(this)} type="text" id="pass" name="pass"/>
