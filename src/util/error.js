@@ -42,12 +42,15 @@ class usersignin extends React.Component {
              <br/>
         <pre>
             </pre>
-		  <h1>Incorrect Password</h1>
+		  <h1>Incorrect Password or Phone Number</h1>
 		  <h5>(The password is case sensitive)</h5>		
           <input placeholder="firstname" type="text" id="firstname" name="firstname" />
           <br/>
           <br />
           <input placeholder="lastname" type="text" id="lastname" name="lastname" />
+          <br/>
+          <br/>
+          <input placeholder="phonenumber" type="text" id="phonenumber" name="phonenumber" />
           <br/>
           <br/>
           <input placeholder="room key" value = {this.state.password.password} onChange={this.handlePasswordChanged.bind(this)} type="text" id="pass" name="pass"/>
