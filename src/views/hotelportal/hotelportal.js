@@ -53,6 +53,7 @@ class hotelportal extends Component {
           <br/>
           <a text-align="left" href = "/"><button>Dashboard</button></a>
           <a text-align="left" href = "/activerooms"><button>Active Rooms</button></a>
+          <a text-align="left" href = "/users"><button>Users</button></a>
           <br />
           <br />
           <h1>Floor Selection</h1>
