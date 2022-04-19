@@ -282,6 +282,7 @@ export const RankingTable = () => {
 };
 
 export const UsersTable = (props) => {
+  console.log("UTableProps", props)
   const { users = [], allSelected } = props;
   const [bulkOption, setBulkOption] = useState(0);
   const disabledBulkMenu = users.filter(u => u.isSelected).length === 0;
@@ -308,12 +309,12 @@ export const UsersTable = (props) => {
   }
 
   const TableRow = (props) => {
-    const { id, verified, status, image, name, email, dateCreated, isSelected } = props;
-    const VerifiedIcon = verified ? CheckCircleIcon : InformationCircleIcon;
-    const statusVariant = status === "active" ? "success"
-      : status === "inactive" ? "warning"
-        : status === "pending" ? "purple"
-          : status === "suspended" ? "danger" : "primary";
+    const { id, name, room, dateCreated, time, isSelected } = props;
+    // const VerifiedIcon = verified ? CheckCircleIcon : InformationCircleIcon;
+    // const statusVariant = status === "active" ? "success"
+    //   : status === "inactive" ? "warning"
+    //     : status === "pending" ? "purple"
+    //       : status === "suspended" ? "danger" : "primary";
 
     return (
       <tr className="border-bottom">
@@ -325,35 +326,20 @@ export const UsersTable = (props) => {
         </td>
         <td>
           <Card.Link className="d-flex align-items-center">
-            {image
-              ? (
-                <Image
-                  src={image}
-                  className="avatar rounded-circle me-3"
-                />
-              ) : (
+            {(
                 <div className="avatar d-flex align-items-center justify-content-center fw-bold rounded bg-secondary me-3">
                   <span>{getFirstLetterOfEachWord(name)}</span>
                 </div>
               )}
             <div className="d-block">
               <span className="fw-bold">{name}</span>
-              <div className="small text-gray">{email}</div>
+              {/* <div className="small text-gray">{email}</div> */}
             </div>
           </Card.Link>
         </td>
+        <td><span className="fw-normal">{room}</span></td>
         <td><span className="fw-normal">{dateCreated}</span></td>
-        <td>
-          <span className="fw-normal d-flex align-items-center">
-            <VerifiedIcon className={`icon icon-xxs text-${statusVariant} me-1`} />
-            Email
-          </span>
-        </td>
-        <td>
-          <span className={`fw-normal text-${statusVariant}`}>
-            {capitalizeFirstLetter(status)}
-          </span>
-        </td>
+        <td><span className="fw-normal">{time}</span></td>
         <td>
           <Dropdown as={ButtonGroup}>
             <Dropdown.Toggle as={Button} split variant="link" className="text-dark m-0 p-0">
@@ -408,11 +394,10 @@ export const UsersTable = (props) => {
                   <FormCheck.Label htmlFor="userCheckAll" />
                 </FormCheck>
               </th>
-              <th className="border-bottom">Name</th>
-              <th className="border-bottom">Check-In</th>
-              <th className="border-bottom">Room Number</th>
-              <th className="border-bottom">Status</th>
-              <th className="border-bottom">Action</th>
+              <th className="border-bottom">User</th>
+              <th className="border-bottom">Room</th>
+              <th className="border-bottom">Date Created</th>
+              <th className="border-bottom">Time Checked-In</th>
             </tr>
           </thead>
           <tbody className="border-0">

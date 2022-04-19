@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { AdjustmentsIcon, CheckIcon, CogIcon, HomeIcon, PlusIcon, SearchIcon } from "@heroicons/react/solid";
@@ -17,11 +17,35 @@ const SwalWithBootstrapButtons = withReactContent(Swal.mixin({
 }));
 
 export default () => {
-  const [users, setUsers] = useState(USERS_DATA.map(u => ({ ...u, isSelected: false, show: true })));
+  const[notes,setNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const fetchData = () => {
+    fetch('/activeusers')
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setUsers(data.map(u => ({ ...u, isSelected: false, show: true })));
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  const [users, setUsers] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const selectedUsersIds = users.filter(u => u.isSelected).map(u => u.id);
   const totalUsers = users.length;
+  console.log(totalUsers);
   const allSelected = selectedUsersIds.length === totalUsers;
 
   const changeSearchValue = (e) => {
@@ -83,11 +107,10 @@ export default () => {
         <div className="d-block mb-4 mb-md-0">
           <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
             <Breadcrumb.Item><HomeIcon className="icon icon-xs" /></Breadcrumb.Item>
-            <Breadcrumb.Item>Volt</Breadcrumb.Item>
-            <Breadcrumb.Item active>Room Numbers</Breadcrumb.Item>
+            <Breadcrumb.Item active>Users List</Breadcrumb.Item>
           </Breadcrumb>
-          <h4>Room Numbers</h4>
-          <p className="mb-0">Your web analytics dashboard template.</p>
+          <h4>Active Users</h4>
+          <p className="mb-0">Your daily user analytics.</p>
         </div>
         <div className="btn-toolbar mb-2 mb-md-0">
           <Button variant="gray-800" size="sm" className="d-inline-flex align-items-center">
@@ -161,7 +184,7 @@ export default () => {
       </div>
 
       <UsersTable
-        users={users.filter(u => u.show)}
+        users={users}
         allSelected={allSelected}
         selectUser={selectUser}
         deleteUsers={deleteUsers}

@@ -36,11 +36,11 @@ export default [
     },
     {
         "id": uuidv4(),
-        "verified": true,
-        "status": "active",
+        "verified": true, //HAVE
+        "status": "active", //HAVE
         "image": Profile4,
-        "name": "Ronnie Buchanan",
-        "email": "example@themesberg.com",
+        "name": "Ronnie Buchanan", //HAVE
+        "email": "example@themesberg.com", //HAVE
         "dateCreated": moment().subtract(3, "days").format("DD MMM YYYY"),
     },
     {
