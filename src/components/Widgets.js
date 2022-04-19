@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { MDBIcon} from 'mdbreact'; 
 import moment from 'moment-timezone';
 import CountUp from "react-countup";
 import { ArchiveIcon, ArrowDownIcon, ArrowNarrowRightIcon, ArrowUpIcon, CalendarIcon, ChartBarIcon, ChatAltIcon, CheckCircleIcon, CheckIcon, ChevronDownIcon, ChevronUpIcon, ClipboardListIcon, ClockIcon, DocumentTextIcon, DotsHorizontalIcon, EyeIcon, FlagIcon, FolderOpenIcon, GlobeIcon, MailIcon, MailOpenIcon, PaperClipIcon, PencilAltIcon, PresentationChartBarIcon, PresentationChartLineIcon, SaveIcon, ShareIcon, StarIcon, TrashIcon, UserAddIcon } from "@heroicons/react/solid";
@@ -779,7 +780,7 @@ export const HotelPortalRooms = () => {
   const [isError, setIsError] = useState(false);
   const floor = useParams();
   console.log(floor.floor);
-  console.log("HELLOO");
+  console.log("Floor Number Above");
   const fetchData = () => {
     fetch('/floorinfo/'+floor.floor)
       .then((response) => response.json())
@@ -806,13 +807,15 @@ export const HotelPortalRooms = () => {
             <h4 className="h6 mb-0">
               <a href="#!">Floor {room}</a>
               <br/>
-              <Button variant="secondary" size="sm"><a href="/team#/team">view</a></Button>
+              <Button variant="secondary" size="sm"><a href={"/volt-pro-react#/userportal/"+room}>view</a></Button>
             </h4>
           </Col>
         </Row>
       </ListGroup.Item>
     );
   };
+
+  
 
   useEffect(() => {
     fetchData();
@@ -823,12 +826,121 @@ export const HotelPortalRooms = () => {
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light d-flex justify-content-between">
-        <h5 className="mb-0">Hotel Portal</h5>
+        <h5 className="mb-0">Room Selection</h5>
         {/* <Button variant="secondary" size="sm"><a href="/team#/team">See all</a></Button> */}
       </Card.Header>
       <Card.Body>
         <ListGroup className="list-group-flush list my--3">
           {notes.map(dt => <a><TableRow key={dt} {...dt} /></a>)}
+        </ListGroup>
+      </Card.Body>
+    </Card>
+  );
+};
+
+export const UserPortal = () => {
+
+  const UserPortalItem = () => {
+    const[notes,setNotes] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const roomParam = useParams();
+    const room = roomParam.room;
+    console.log(room);
+    console.log("Floor Number Above");
+    
+    const fetchData = () => {
+      fetch('/roominfo/'+room)
+        .then((response) => response.json())
+        .then((data) => {
+          setIsLoading(false);
+          setNotes(data);
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          setIsError(true);
+          console.log(error);
+        });
+    };
+    
+    console.log(notes);
+
+    if(notes.user === "No User"){
+      var vacancy = "Vacant"
+      var guestName = ""
+      var statusColor = "warning"
+    }
+    else{
+      var vacancy = "Active"
+      var guestName = (notes.user)
+      var statusColor = "success"
+    }
+
+    if(notes.motion === "True"){
+      var presence = "Occupied"
+    }
+    else{
+      var presence = "Unoccupied"
+    }
+    
+    useEffect(() => {
+      fetchData();
+    }, []);
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+    else{
+      return (
+        <ListGroup.Item className="border-o">
+          <Row className="ps-lg-1">
+            <Col xs="auto">
+              <div className={`icon-shape icon-xs icon-shape-${statusColor} rounded`}>
+              <MDBIcon icon="door-closed"/>
+              </div>
+            </Col>
+            <Col className="ms-n2 mb-3">
+              <h1 className="fs-6 fw-bold mb-1">
+                {notes.room}
+              </h1>
+              <h2 className="fs-6 fw-bold mb-1">
+                Status: {vacancy}{guestName}
+              </h2>
+              <h3 className="fs-6 fw-bold mb-1">
+                Password: {notes.key}
+              </h3>
+              <Card.Text className="mb-1">
+              <b>{presence}</b>
+              </Card.Text>
+              <Card.Text className="mb-1">
+              Door: {notes.door}
+              </Card.Text>
+              <Card.Text className="mb-1">
+              {notes.temperature} C
+              </Card.Text>
+              <div className="d-flex align-items-center">
+                <ClockIcon className="icon icon-xxs text-gray-400 me-1" />
+                <small>{notes.time}</small>
+              </div>
+            </Col>
+          </Row>
+        </ListGroup.Item>
+      );
+
+    }
+  };
+
+
+  
+  return (
+    <Card border="0" className="notification-card shadow">
+      <Card.Header className="d-flex align-items-center">
+        <h2 className="fs-5 fw-bold mb-0">
+          User Portal
+        </h2>
+      </Card.Header>
+      <Card.Body>
+        <ListGroup className="list-group-flush list-group-timeline">
+          <UserPortalItem />
         </ListGroup>
       </Card.Body>
     </Card>

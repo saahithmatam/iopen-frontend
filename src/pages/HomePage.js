@@ -58,6 +58,7 @@ import Footer from 'components/Footer';
 
 import Accordion from "pages/components/Accordion";
 import HotelPortalRoomsList from "./components/HotelPortalRooms";
+import UserPortalInfo from "./components/UserPortal";
 import Alerts from "pages/components/Alerts";
 import Badges from "pages/components/Badges";
 import Breadcrumbs from "pages/components/Breadcrumbs";
@@ -151,6 +152,7 @@ export default () => (
 
     {/* pages */}
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
+    <RouteWithSidebar exact path={Routes.UserPortal.path} component={UserPortalInfo} />
     <RouteWithSidebar exact path={Routes.HotelPortal.path} component={HotelPortalFloors} />
     <RouteWithSidebar exact path={Routes.DashboardTraffic.path} component={DashboardTraffic} />
     <RouteWithSidebar exact path={Routes.DashboardProductAnalysis.path} component={DashboardProductAnalysis} />
