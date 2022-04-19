@@ -5,6 +5,8 @@ BrowserRouter as Router,
 Switch,
 Route,
 } from "react-router-dom";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import React from 'react';
 import {useEffect,useState} from "react";
 import RingLoader from "react-spinners/RingLoader";
 import { css } from "@emotion/react";
