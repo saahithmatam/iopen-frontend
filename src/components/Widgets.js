@@ -805,7 +805,7 @@ export const HotelPortalRooms = () => {
         <Row className="align-items-center">
           <Col className="ms--2">
             <h4 className="h6 mb-0">
-              <a href="#!">Floor {room}</a>
+              <a href="#!">Room {room}</a>
               <br/>
               <Button variant="secondary" size="sm"><a href={"/volt-pro-react#/userportal/"+room}>view</a></Button>
             </h4>
@@ -1143,7 +1143,7 @@ export const ActiveRooms = () => {
         <Row className="align-items-center">
           <Col className="ms--2">
             <h4 className="h6 mb-0">
-              <a href="#!">Floor {room}</a>
+              <a href="#!">Room {room}</a>
               <br/>
               <Button variant="secondary" size="sm"><a href={"/volt-pro-react#/userportal/"+room}>view</a></Button>
             </h4>
