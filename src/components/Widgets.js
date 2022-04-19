@@ -738,7 +738,13 @@ export const HotelPortal = () => {
             <h4 className="h6 mb-0">
               <a href="#!">Floor {notes[0]}</a>
               <br/>
-              <Button variant="secondary" size="sm"><a href="/team#/team">view</a></Button>
+              <form action = "/floorinfo" id = "floorinfo" method = "POST">
+              <input type="hidden" value={notes[0]} name="floorinfo" />
+              <Button variant="secondary" size="sm"><Link type = "submit" form= "floorinfo" to={{
+                             pathname: "/hotelportalrooms/"+notes[0],
+                             state: { room: notes[0] }
+                           }}>view</Link></Button>
+              </form>
             </h4>
           </Col>
         </Row>
