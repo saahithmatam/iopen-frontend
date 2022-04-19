@@ -738,12 +738,9 @@ export const HotelPortal = () => {
             <h4 className="h6 mb-0">
               <a href="#!">Floor {notes[0]}</a>
               <br/>
-              <form action = "/floorinfo" id = "floorinfo" method = "POST">
+              <form action = "/floorinfo" id={notes[0]} method="POST">
               <input type="hidden" value={notes[0]} name="floorinfo" />
-              <Button variant="secondary" size="sm"><Link type = "submit" form= "floorinfo" to={{
-                             pathname: "/hotelportalrooms/"+notes[0],
-                             state: { room: notes[0] }
-                           }}>view</Link></Button>
+              <Button type = "submit" form={notes[0]} variant="secondary" size="sm"><a>view</a></Button>
               </form>
             </h4>
           </Col>
@@ -773,12 +770,14 @@ export const HotelPortal = () => {
   );
 };
 
-export const HotelPortalRooms = () => {
+export const HotelPortalRooms = (props) => {
   const[notes,setNotes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const floor = this.props.location.state.room;
+  console.log(floor)
   const fetchData = () => {
-    fetch('/createdhotelportal')
+    fetch('/floorinfo/'+floor)
       .then((response) => response.json())
       .then((data) => {
         setIsLoading(false);
