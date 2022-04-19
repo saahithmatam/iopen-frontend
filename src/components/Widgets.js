@@ -947,6 +947,55 @@ export const UserPortal = () => {
   );
 };
 
+export const CreatePortal = () => {
+
+  const CreatePortalItem = () => {
+    return (
+      <ListGroup.Item className="border-o">
+        <Row className="ps-lg-1">
+          <Col xs="auto">
+            <div className={`icon-shape icon-xs icon-shape-success rounded`}>
+            <MDBIcon icon="door-closed"/>
+            </div>
+          </Col>
+          <Col className="ms-n2 mb-3">
+            <form action="/createhotelportal" method="POST" id="hotelform">
+              <label class="btn btn-primary">
+                <input type ="file"id="myfile" name="myfile" title=" "/>
+                </label>
+              <br />
+              <Button variant="secondary" type="submit" value="Submit" form="hotelform">
+                {/* <a href="/volt-pro-react#/hotelportal">
+                Upload
+                </a> */}
+                Upload
+              </Button>
+            </form>
+          </Col>
+        </Row>
+      </ListGroup.Item>
+    );
+  };
+
+
+  
+  return (
+    <Card border="0" className="notification-card shadow">
+      <Card.Header className="d-flex align-items-center">
+        <h2 className="fs-5 fw-bold mb-0">
+          Create Portal
+        </h2>
+      </Card.Header>
+      <Card.Body>
+        <ListGroup className="list-group-flush list-group-timeline">
+          <CreatePortalItem />
+          <h6>Please Upload a CSV Containing The Hotels Information.</h6>
+        </ListGroup>
+      </Card.Body>
+    </Card>
+  );
+};
+
 
 
 export const TeamMembersWidget = () => {
