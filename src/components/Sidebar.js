@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 import { CSSTransition } from 'react-transition-group';
-import { ArchiveIcon, CalendarIcon, ChartBarIcon, ChartPieIcon, ChevronRightIcon, ClipboardListIcon, CogIcon, CreditCardIcon, InboxIcon, InformationCircleIcon, LocationMarkerIcon, NewspaperIcon, TableIcon, TemplateIcon, UsersIcon, ViewGridIcon, XIcon } from "@heroicons/react/solid";
+import { ArchiveIcon, CalendarIcon, ChartBarIcon, ChartPieIcon, ChevronRightIcon, ClipboardListIcon, CogIcon, CreditCardIcon, InformationCircleIcon, LocationMarkerIcon, NewspaperIcon, TableIcon, TemplateIcon, UsersIcon, ViewGridIcon, XIcon } from "@heroicons/react/solid";
 import { LogoutIcon } from "@heroicons/react/outline";
 import { Nav, Badge, Image, Button, Dropdown, Navbar, Collapse, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -134,46 +134,33 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Volt Pro React" link={Routes.Presentation.path} image={ReactHero} />
+              <NavItem title="IOpen" image={ReactHero} />
 
               <CollapsableNavItem eventKey="dashboard/" title="Dashboard" icon={ChartBarIcon}>
                 <NavItem title="Overview" link={Routes.DashboardOverview.path} />
-                <NavItem title="All Traffic" link={Routes.DashboardTraffic.path} />
-                <NavItem title="Product Analysis" link={Routes.DashboardProductAnalysis.path} />
               </CollapsableNavItem>
 
               <NavItem title="Create Portal" icon={ViewGridIcon} link={Routes.CreatePortal.path} />
-              <NavItem title="Hotel Portal" icon={ViewGridIcon} link={Routes.HotelPortal.path} />
-              <NavItem title="Active Rooms" icon={ViewGridIcon} link={Routes.ActiveRooms.path} />
+              <NavItem title="Hotel Portal" icon={ClipboardListIcon} link={Routes.HotelPortal.path} />
+              <NavItem title="Active Rooms" icon={LocationMarkerIcon} link={Routes.ActiveRooms.path} />
               <NavItem title="Users List" icon={UsersIcon} link={Routes.Users.path} />
-              <NavItem title="Transactions" icon={CreditCardIcon} link={Routes.Transactions.path} />
-              <NavItem title="Task List" icon={ClipboardListIcon} link={Routes.Tasks.path} />
+              {/* <NavItem title="Transactions" icon={CreditCardIcon} link={Routes.Transactions.path} />
+              <NavItem title="Task List" icon={ClipboardListIcon} link={Routes.Tasks.path} /> */}
               <NavItem title="Settings" icon={CogIcon} link={Routes.Settings.path} />
-              <NavItem title="Calendar" icon={CalendarIcon} link={Routes.Calendar.path} />
+              {/* <NavItem title="Calendar" icon={CalendarIcon} link={Routes.Calendar.path} />
               <NavItem title="Map" icon={LocationMarkerIcon} link={Routes.Map.path} />
-              <NavItem title="Widgets" icon={TemplateIcon} link={Routes.Widgets.path} />
+              <NavItem title="Widgets" icon={TemplateIcon} link={Routes.Widgets.path} /> */}
 
-              <CollapsableNavItem eventKey="tables/" title="Tables" icon={TableIcon}>
+              {/* <CollapsableNavItem eventKey="tables/" title="Tables" icon={TableIcon}>
                 <NavItem title="DataTables" link={Routes.Datatables.path} />
                 <NavItem title="Bootstrap Tables" link={Routes.BootstrapTables.path} />
-              </CollapsableNavItem>
+              </CollapsableNavItem> */}
 
-              <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={NewspaperIcon}>
-                <NavItem title="Pricing" link={Routes.Pricing.path} />
-                <NavItem title="Billing" link={Routes.Billing.path} />
-                <NavItem title="Invoice" link={Routes.Invoice.path} />
-                <NavItem title="Sign In" link={Routes.Signin.path} />
-                <NavItem title="Sign Up" link={Routes.Signup.path} />
-                <NavItem title="Forgot password" link={Routes.ForgotPassword.path} />
-                <NavItem title="Reset password" link={Routes.ResetPassword.path} />
-                <NavItem title="Lock" link={Routes.Lock.path} />
-                <NavItem title="404 Not Found" link={Routes.NotFound.path} />
-                <NavItem title="500 Server Error" link={Routes.ServerError.path} />
-              </CollapsableNavItem>
+     
 
               <Dropdown.Divider className="my-3 border-indigo" />
 
-              <CollapsableNavItem eventKey="documentation/" title="Getting Started" icon={InformationCircleIcon}>
+              {/* <CollapsableNavItem eventKey="documentation/" title="Getting Started" icon={InformationCircleIcon}>
                 <NavItem title="Overview" link={Routes.DocsOverview.path} />
                 <NavItem title="Download" link={Routes.DocsDownload.path} />
                 <NavItem title="Quick Start" link={Routes.DocsQuickStart.path} />
@@ -181,9 +168,9 @@ export default (props = {}) => {
                 <NavItem title="Folder Structure" link={Routes.DocsFolderStructure.path} />
                 <NavItem title="Build Tools" link={Routes.DocsBuild.path} />
                 <NavItem title="Changelog" link={Routes.DocsChangelog.path} />
-              </CollapsableNavItem>
+              </CollapsableNavItem> */}
 
-              <CollapsableNavItem eventKey="components/" title="Components" icon={ArchiveIcon}>
+              {/* <CollapsableNavItem eventKey="components/" title="Components" icon={ArchiveIcon}>
                 <NavItem title="Accordion" link={Routes.Accordions.path} />
                 <NavItem title="Alerts" link={Routes.Alerts.path} />
                 <NavItem title="Badges" link={Routes.Badges.path} />
@@ -210,7 +197,7 @@ export default (props = {}) => {
                 <NavItem title="Map" link={Routes.PluginMap.path} />
                 <NavItem title="DropZone" link={Routes.PluginDropzone.path} />
                 <NavItem title="SweetAlert" link={Routes.PluginSweetAlert.path} />
-              </CollapsableNavItem>
+              </CollapsableNavItem> */}
 
             </Nav>
           </div>

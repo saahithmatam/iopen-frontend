@@ -16,7 +16,7 @@ export default (props) => {
 
   return (
     <div>
-      {showSettings ? (
+      {/* {showSettings ? (
         <Card className="theme-settings">
           <Card.Body className="pt-4">
             <Button className="theme-settings-close" variant="close" size="sm" aria-label="Close" onClick={() => { toggleSettings(false) }} />
@@ -59,14 +59,14 @@ export default (props) => {
             </span>
           </Card.Body>
         </Card>
-      )}
+      )} */}
       <footer className="bg-white rounded shadow p-5 mb-4 mt-4">
         <Row>
           <Col xs={12} md={4} xl={6} className="mb-4 mb-md-0">
             <p className="mb-0 text-center text-lg-start">
               © 2019-{`${currentYear} `}
               <Card.Link href="https://themesberg.com" target="_blank" className="text-primary fw-normal">
-                Themesberg
+                IOpen Innovations
               </Card.Link>
             </p>
           </Col>
@@ -77,7 +77,7 @@ export default (props) => {
                   About
                 </Card.Link>
               </li>
-              <li className="list-inline-item px-0 px-sm-2">
+              {/* <li className="list-inline-item px-0 px-sm-2">
                 <Card.Link href="https://themesberg.com/themes" target="_blank">
                   Themes
                 </Card.Link>
@@ -86,7 +86,7 @@ export default (props) => {
                 <Card.Link href="https://themesberg.com/blog" target="_blank">
                   Blog
                 </Card.Link>
-              </li>
+              </li> */}
               <li className="list-inline-item px-0 px-sm-2">
                 <Card.Link href="https://themesberg.com/contact" target="_blank">
                   Contact
