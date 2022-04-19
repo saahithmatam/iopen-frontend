@@ -6,6 +6,7 @@ import { ArchiveIcon, ArrowDownIcon, ArrowNarrowRightIcon, ArrowUpIcon, Calendar
 import { Col, Row, Card, Form, Badge, Image, Button, ListGroup, ProgressBar, Tooltip, Dropdown, OverlayTrigger, ButtonGroup } from 'react-bootstrap';
 import { BarChartHorizontal, BarChart, PieChart, DognutChart, LineGraphChart, SalesValueChart, CustomersChart, RevenueChart, UsersChart, WeeklyReportChart } from "components/Charts";
 import { Link, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import Profile2 from "assets/img/team/profile-picture-2.jpg";
 import ProfileCover from "assets/img/profile-cover.jpg";
@@ -729,7 +730,9 @@ export const HotelPortal = () => {
   const TableRow = (notes) => {
   
     console.log(notes);
-    console.log(notes);
+    var floor = notes[0];
+    console.log(floor);
+
 
     return (
       <ListGroup.Item className="px-0">
@@ -737,6 +740,71 @@ export const HotelPortal = () => {
           <Col className="ms--2">
             <h4 className="h6 mb-0">
               <a href="#!">Floor {notes[0]}</a>
+              <br/>
+              <form action = "/floorinfo" id={notes[0]} method="POST">
+              <input type="hidden" value={notes[0]} name="floorinfo" />
+              <Button type = "submit" form={notes[0]} variant="secondary" size="sm"><a href={"/volt-pro-react#/hotelportalrooms/"+floor}>view</a></Button>
+              </form>
+            </h4>
+          </Col>
+        </Row>
+      </ListGroup.Item>
+    );
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <Card border="light" className="shadow-sm">
+      <Card.Header className="border-bottom border-light d-flex justify-content-between">
+        <h5 className="mb-0">Hotel Portal</h5>
+        {/* <Button variant="secondary" size="sm"><a href="/team#/team">See all</a></Button> */}
+      </Card.Header>
+      <Card.Body>
+        <ListGroup className="list-group-flush list my--3">
+          {notes.map(dt => <a><TableRow key={dt} {...dt} /></a>)}
+        </ListGroup>
+      </Card.Body>
+    </Card>
+  );
+};
+
+export const HotelPortalRooms = () => {
+  const[notes,setNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const floor = useParams();
+  console.log(floor.floor);
+  console.log("HELLOO");
+  const fetchData = () => {
+    fetch('/floorinfo/'+floor.floor)
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setNotes(data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
+      });
+    console.log(notes);
+  };
+  const TableRow = (notes) => {
+  
+    console.log(notes);
+    var room = notes[0]+notes[1]+notes[2];
+
+    return (
+      <ListGroup.Item className="px-0">
+        <Row className="align-items-center">
+          <Col className="ms--2">
+            <h4 className="h6 mb-0">
+              <a href="#!">Floor {room}</a>
               <br/>
               <Button variant="secondary" size="sm"><a href="/team#/team">view</a></Button>
             </h4>
