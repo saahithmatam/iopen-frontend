@@ -96,6 +96,72 @@ export const PageVisitsTable = () => {
   );
 };
 
+// export const ActiveRooms = () => {
+//   const history = useHistory();
+
+//   const goToTrafficSources = () => {
+//     history.push(Routes.DashboardTraffic.path);
+//   }
+
+//   const TableRow = (props) => {
+//     const { pageName, views, returnValue, bounceRate } = props;
+//     const BounceIcon = bounceRate < 0 ? ArrowNarrowDownIcon : ArrowNarrowUpIcon;
+//     const bounceTxtColor = bounceRate < 0 ? "text-danger" : "text-success";
+
+//     return (
+//       <tr className="border-bottom">
+//         <th className="text-gray-900" scope="row">
+//           {pageName}
+//         </th>
+//         <td className="fw-bolder text-gray-500">
+//           {views}
+//         </td>
+//         <td className="fw-bolder text-gray-500">
+//           ${returnValue}
+//         </td>
+//         <td className="fw-bolder text-gray-500">
+//           <div className="d-flex align-items-center">
+//             <BounceIcon className={`icon icon-xs ${bounceTxtColor} me-2`} />
+//             {Math.abs(bounceRate)}%
+//           </div>
+//         </td>
+//       </tr>
+//     );
+//   };
+
+//   return (
+//     <Card border="0" className="shadow">
+//       <Card.Header>
+//         <Row className="align-items-center">
+//           <Col>
+//             <h2 className="fs-5 fw-bold mb-0">
+//               Page visits
+//             </h2>
+//           </Col>
+//           <Col className="text-end">
+//             <Button variant="primary" size="sm" onClick={goToTrafficSources}>
+//               See all
+//             </Button>
+//           </Col>
+//         </Row>
+//       </Card.Header>
+//       <Table responsive className="align-items-center table-flush">
+//         <thead className="thead-light">
+//           <tr>
+//             <th className="border-bottom" scope="col">Room</th>
+//             <th className="border-bottom" scope="col">User</th>
+//             <th className="border-bottom" scope="col">Presence</th>
+//             <th className="border-bottom" scope="col">Door</th>
+//           </tr>
+//         </thead>
+//         <tbody className="border-0">
+//           {pageVisits.map(pv => <TableRow key={`page-visit-${pv.id}`} {...pv} />)}
+//         </tbody>
+//       </Table>
+//     </Card>
+//   );
+// };
+
 export const PageTrafficTable = () => {
   const TableRow = (props) => {
     const { index, source, sourceIcon, sourceType, category, rank, trafficShare, change } = props;

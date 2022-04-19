@@ -3,7 +3,7 @@ import React from "react";
 import { CloudUploadIcon, CollectionIcon, FireIcon, PlusIcon, ShieldExclamationIcon, UserAddIcon } from "@heroicons/react/solid";
 import { Col, Row, Button, Dropdown } from 'react-bootstrap';
 
-import { CustomersWidget, RevenueWidget, UsersWidget, WeeklyReportWidget, TopAuthorsWidget, TeamMembersWidget, ProgressTrackWidget, EventsWidget, RankingWidget, VisitsMapWidget, SalesValueWidget, AcquisitionWidget, TimelineWidget, HotelPortal } from "components/Widgets";
+import { CustomersWidget, RevenueWidget, ActiveRooms, UsersWidget, WeeklyReportWidget, TopAuthorsWidget, TeamMembersWidget, ProgressTrackWidget, EventsWidget, RankingWidget, VisitsMapWidget, SalesValueWidget, AcquisitionWidget, TimelineWidget, HotelPortal } from "components/Widgets";
 import { PageVisitsTable } from "components/Tables";
 
 export default () => {
@@ -77,17 +77,12 @@ export default () => {
       </Row>
 
       <Row>
-        <Col xs={12} xxl={4} className="mb-4">
-          <WeeklyReportWidget
-            headerTitle="Weekly Sales"
-            headerSubtitle="28 Daily Avg."
-            reportTitle="$456,678"
-            reportSubtitle="Total Themesberg Sales"
-          />
-        </Col>
+        <Col xs={12} xxl={6} className="mb-4">
+              <HotelPortal />
+            </Col>
 
         <Col xs={12} md={6} xxl={4} className="mb-4">
-          <TopAuthorsWidget title="Top Author Earnings" />
+          <ActiveRooms />
         </Col>
 
         <Col xs={12} md={6} xxl={4} className="mb-4">
@@ -104,10 +99,6 @@ export default () => {
 
             <Col xs={12} xxl={6} className="mb-4">
               <TeamMembersWidget />
-            </Col>
-
-            <Col xs={12} xxl={6} className="mb-4">
-              <HotelPortal />
             </Col>
 
             <Col xs={12} xxl={6} className="mb-4">

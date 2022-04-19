@@ -144,7 +144,7 @@ export default (props = {}) => {
 
               <NavItem title="Create Portal" icon={ViewGridIcon} link={Routes.CreatePortal.path} />
               <NavItem title="Hotel Portal" icon={ViewGridIcon} link={Routes.HotelPortal.path} />
-              <NavItem title="Messages" icon={InboxIcon} badgeText="4" badgeBg="danger" link={Routes.Messages.path} />
+              <NavItem title="Active Rooms" icon={ViewGridIcon} link={Routes.ActiveRooms.path} />
               <NavItem title="Users List" icon={UsersIcon} link={Routes.Users.path} />
               <NavItem title="Transactions" icon={CreditCardIcon} link={Routes.Transactions.path} />
               <NavItem title="Task List" icon={ClipboardListIcon} link={Routes.Tasks.path} />

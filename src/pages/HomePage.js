@@ -60,6 +60,7 @@ import Accordion from "pages/components/Accordion";
 import HotelPortalRoomsList from "./components/HotelPortalRooms";
 import CreatedHotelPortal from "./components/CreatePortal";
 import UserPortalInfo from "./components/UserPortal";
+import ActiveRoomsDisplay from "./components/ActiveRooms";
 import Alerts from "pages/components/Alerts";
 import Badges from "pages/components/Badges";
 import Breadcrumbs from "pages/components/Breadcrumbs";
@@ -176,6 +177,7 @@ export default () => (
     {/* components */}
     <RouteWithSidebar exact path={Routes.Accordions.path} component={Accordion} />
     <RouteWithSidebar exact path={Routes.HotelPortalRooms.path} component={HotelPortalRoomsList} />
+    <RouteWithSidebar exact path={Routes.ActiveRooms.path} component={ActiveRoomsDisplay} />
     <RouteWithSidebar exact path={Routes.Alerts.path} component={Alerts} />
     <RouteWithSidebar exact path={Routes.Badges.path} component={Badges} />
     <RouteWithSidebar exact path={Routes.Widgets.path} component={Widgets} />
