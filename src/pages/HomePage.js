@@ -57,7 +57,7 @@ import Topbar from 'components/Topbar';
 import Footer from 'components/Footer';
 
 import Accordion from "pages/components/Accordion";
-import HotelPortalRoomsList from "pages/components/HotelPortalRooms";
+import HotelPortalRoomsList from "./components/HotelPortalRooms";
 import Alerts from "pages/components/Alerts";
 import Badges from "pages/components/Badges";
 import Breadcrumbs from "pages/components/Breadcrumbs";
