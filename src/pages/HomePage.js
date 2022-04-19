@@ -4,6 +4,8 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { Routes } from "routes";
 
 // pages
+
+
 import Presentation from "pages/Presentation";
 import DashboardOverview from "pages/dashboard/DashboardOverview";
 import DashboardTraffic from "pages/dashboard/DashboardTraffic";
@@ -55,6 +57,7 @@ import Topbar from 'components/Topbar';
 import Footer from 'components/Footer';
 
 import Accordion from "pages/components/Accordion";
+import HotelPortalRoomsList from "pages/components/HotelPortalRooms";
 import Alerts from "pages/components/Alerts";
 import Badges from "pages/components/Badges";
 import Breadcrumbs from "pages/components/Breadcrumbs";
@@ -168,6 +171,7 @@ export default () => (
 
     {/* components */}
     <RouteWithSidebar exact path={Routes.Accordions.path} component={Accordion} />
+    <RouteWithSidebar exact path={Routes.HotelPortalRooms.path} component={HotelPortalRoomsList} />
     <RouteWithSidebar exact path={Routes.Alerts.path} component={Alerts} />
     <RouteWithSidebar exact path={Routes.Badges.path} component={Badges} />
     <RouteWithSidebar exact path={Routes.Widgets.path} component={Widgets} />

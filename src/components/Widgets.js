@@ -767,6 +767,64 @@ export const HotelPortal = () => {
   );
 };
 
+export const HotelPortalRooms = () => {
+  const[notes,setNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const fetchData = () => {
+    fetch('/createdhotelportal')
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setNotes(data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
+      });
+  };
+  const TableRow = (notes) => {
+  
+    console.log(notes);
+    console.log(notes);
+
+    return (
+      <ListGroup.Item className="px-0">
+        <Row className="align-items-center">
+          <Col className="ms--2">
+            <h4 className="h6 mb-0">
+              <a href="#!">Floor {notes[0]}</a>
+              <br/>
+              <Button variant="secondary" size="sm"><a href="/team#/team">view</a></Button>
+            </h4>
+          </Col>
+        </Row>
+      </ListGroup.Item>
+    );
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <Card border="light" className="shadow-sm">
+      <Card.Header className="border-bottom border-light d-flex justify-content-between">
+        <h5 className="mb-0">Hotel Portal</h5>
+        {/* <Button variant="secondary" size="sm"><a href="/team#/team">See all</a></Button> */}
+      </Card.Header>
+      <Card.Body>
+        <ListGroup className="list-group-flush list my--3">
+          {notes.map(dt => <a><TableRow key={dt} {...dt} /></a>)}
+        </ListGroup>
+      </Card.Body>
+    </Card>
+  );
+};
+
 
 
 export const TeamMembersWidget = () => {

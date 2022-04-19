@@ -5,6 +5,7 @@ export const Routes = {
     Presentation: { path: "/dashboard/overview" },
     DashboardOverview: { path: "/" },
     HotelPortal: {path: '/hotelportal'},
+    HotelPortalRooms: {path: '/hotelportalrooms'},
     DashboardTraffic: { path: "/dashboard/traffic-and-engagement" },
     DashboardProductAnalysis: { path: "/dashboard/product-analysis" },
     Kanban: { path: "/kanban" },
