@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import moment from 'moment-timezone';
 import CountUp from "react-countup";
 import { ArchiveIcon, ArrowDownIcon, ArrowNarrowRightIcon, ArrowUpIcon, CalendarIcon, ChartBarIcon, ChatAltIcon, CheckCircleIcon, CheckIcon, ChevronDownIcon, ChevronUpIcon, ClipboardListIcon, ClockIcon, DocumentTextIcon, DotsHorizontalIcon, EyeIcon, FlagIcon, FolderOpenIcon, GlobeIcon, MailIcon, MailOpenIcon, PaperClipIcon, PencilAltIcon, PresentationChartBarIcon, PresentationChartLineIcon, SaveIcon, ShareIcon, StarIcon, TrashIcon, UserAddIcon } from "@heroicons/react/solid";
@@ -708,6 +708,66 @@ export const DognutChartWidget = (props) => {
     </Card>
   );
 };
+
+export const HotelPortal = () => {
+  const[notes,setNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const fetchData = () => {
+    fetch('/createdhotelportal')
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setNotes(data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
+      });
+  };
+  const TableRow = (notes) => {
+  
+    console.log(notes);
+    console.log(notes);
+
+    return (
+      <ListGroup.Item className="px-0">
+        <Row className="align-items-center">
+          <Col className="ms--2">
+            <h4 className="h6 mb-0">
+              <a href="#!">Floor {notes[0]}</a>
+              <br/>
+              <Button variant="secondary" size="sm"><a href="/team#/team">view</a></Button>
+            </h4>
+          </Col>
+        </Row>
+      </ListGroup.Item>
+    );
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <Card border="light" className="shadow-sm">
+      <Card.Header className="border-bottom border-light d-flex justify-content-between">
+        <h5 className="mb-0">Hotel Portal</h5>
+        {/* <Button variant="secondary" size="sm"><a href="/team#/team">See all</a></Button> */}
+      </Card.Header>
+      <Card.Body>
+        <ListGroup className="list-group-flush list my--3">
+          {notes.map(dt => <a><TableRow key={dt} {...dt} /></a>)}
+        </ListGroup>
+      </Card.Body>
+    </Card>
+  );
+};
+
+
 
 export const TeamMembersWidget = () => {
   const history = useHistory();
