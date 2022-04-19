@@ -325,7 +325,7 @@ export const UsersTable = (props) => {
           </FormCheck>
         </td>
         <td>
-          <Card.Link className="d-flex align-items-center">
+          <Card.Link className="d-flex align-items-center" >
             {(
                 <div className="avatar d-flex align-items-center justify-content-center fw-bold rounded bg-secondary me-3">
                   <span>{getFirstLetterOfEachWord(name)}</span>

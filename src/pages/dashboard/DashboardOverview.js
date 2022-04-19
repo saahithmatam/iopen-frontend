@@ -84,10 +84,6 @@ export default () => {
         <Col xs={12} md={6} xxl={4} className="mb-4">
           <ActiveRooms />
         </Col>
-
-        <Col xs={12} md={6} xxl={4} className="mb-4">
-          <TimelineWidget title="Notifications" />
-        </Col>
       </Row>
 
       <Row>
