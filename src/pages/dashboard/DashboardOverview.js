@@ -4,7 +4,7 @@ import { CloudUploadIcon, CollectionIcon, FireIcon, PlusIcon, ShieldExclamationI
 import { Col, Row, Button, Dropdown } from 'react-bootstrap';
 
 import { CustomersWidget, RevenueWidget, UsersWidget, WeeklyReportWidget, TopAuthorsWidget, TeamMembersWidget, ProgressTrackWidget, EventsWidget, RankingWidget, VisitsMapWidget, SalesValueWidget, AcquisitionWidget, TimelineWidget, HotelPortal } from "components/Widgets";
-import { PageVisitsTable } from "components/Tables";
+import { PageVisitsTable, ActiveRooms } from "components/Tables";
 
 export default () => {
   return (
@@ -104,6 +104,10 @@ export default () => {
 
             <Col xs={12} xxl={6} className="mb-4">
               <TeamMembersWidget />
+            </Col>
+
+            <Col xs={12} xxl={6} className="mb-4">
+              <ActiveRooms />
             </Col>
 
             <Col xs={12} xxl={6} className="mb-4">

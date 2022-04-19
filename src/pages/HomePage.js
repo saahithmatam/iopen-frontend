@@ -8,6 +8,7 @@ import { Routes } from "routes";
 
 import Presentation from "pages/Presentation";
 import DashboardOverview from "pages/dashboard/DashboardOverview";
+import CreatePortal from "./CreatePortal"
 import DashboardTraffic from "pages/dashboard/DashboardTraffic";
 import DashboardProductAnalysis from "pages/dashboard/DashboardProductAnalysis";
 import Kanban from 'pages/Kanban';
@@ -151,6 +152,7 @@ export default () => (
 
     {/* pages */}
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
+    <RouteWithSidebar exact path={Routes.CreatePortal.path} component={CreatePortal} />
     <RouteWithSidebar exact path={Routes.HotelPortal.path} component={HotelPortalFloors} />
     <RouteWithSidebar exact path={Routes.DashboardTraffic.path} component={DashboardTraffic} />
     <RouteWithSidebar exact path={Routes.DashboardProductAnalysis.path} component={DashboardProductAnalysis} />

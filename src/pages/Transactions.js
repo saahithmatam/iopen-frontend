@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CheckIcon, CogIcon, HomeIcon, PlusIcon, SearchIcon } from "@heroicons/react/solid";
 import { Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown } from 'react-bootstrap';
 
-import { TransactionsTable } from "components/Tables";
+import { TransactionsTable, ActiveRooms } from "components/Tables";
 import TRANSACTIONS_DATA from "data/transactions";
 
 export default () => {
@@ -41,14 +41,14 @@ export default () => {
           <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
             <Breadcrumb.Item><HomeIcon className="icon icon-xs" /></Breadcrumb.Item>
             <Breadcrumb.Item>Volt</Breadcrumb.Item>
-            <Breadcrumb.Item active>Transactions</Breadcrumb.Item>
+            <Breadcrumb.Item active>Active Rooms</Breadcrumb.Item>
           </Breadcrumb>
           <h4>All Orders</h4>
           <p className="mb-0">Your web analytics dashboard template.</p>
         </div>
         <div className="btn-toolbar mb-2 mb-md-0">
           <Button variant="gray-800" size="sm" className="d-inline-flex align-items-center">
-            <PlusIcon className="icon icon-xs me-2" /> New Plan
+            <PlusIcon className="icon icon-xs me-2" /> New Room
           </Button>
           <ButtonGroup className="ms-2 ms-lg-3">
             <Button variant="outline-gray-600" size="sm">Share</Button>
@@ -66,16 +66,15 @@ export default () => {
               </InputGroup.Text>
               <Form.Control
                 type="text"
-                placeholder="Search orders"
+                placeholder="Search active rooms"
                 value={searchValue}
                 onChange={changeSearchValue}
               />
             </InputGroup>
             <Form.Select value={statusValue} className="fmxw-200 d-none d-md-inline" onChange={changeStatusValue}>
               <option value="all">All</option>
-              <option value="paid">Paid</option>
-              <option value="due">Due</option>
-              <option value="cancelled">Cancelled</option>
+              <option value="paid">Active</option>
+              <option value="due">In-Active</option>
             </Form.Select>
           </Col>
           <Col xs={3} lg={4} className="d-flex justify-content-end">
@@ -97,7 +96,7 @@ export default () => {
         </Row>
       </div>
 
-      <TransactionsTable
+      <ActiveRooms
         transactions={transactions.filter(t => t.show)}
       />
     </>

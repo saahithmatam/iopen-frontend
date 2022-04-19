@@ -1,12 +1,14 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowNarrowDownIcon, ArrowNarrowUpIcon, CheckCircleIcon, ChevronDownIcon, ChevronUpIcon, DotsHorizontalIcon, ExternalLinkIcon, EyeIcon, InformationCircleIcon, PencilAltIcon, ShieldExclamationIcon, TrashIcon, UserRemoveIcon, XCircleIcon } from "@heroicons/react/solid";
 import { Col, Row, Nav, Card, Form, Image, Button, Table, Dropdown, ProgressBar, Pagination, Tooltip, FormCheck, ButtonGroup, OverlayTrigger } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 
+
 import { Routes } from "routes";
 import { pageVisits, pageTraffic, pageRanking } from "data/tables";
 import commands from "data/commands";
+import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons'
 
 const capitalizeFirstLetter = (string) => (
   string[0].toUpperCase() + string.slice(1)
@@ -29,6 +31,77 @@ const ValueChange = ({ value, suffix }) => {
     </span> : "--"
   );
 };
+
+export const ActiveRooms = () => {
+  const[notes,setNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const fetchData = () => {
+    fetch('/activerooms')
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setNotes(data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
+      });
+  };
+  const TableRow = (data) => {
+    const { pageName, views, returnValue, bounceRate } = notes;
+    const bounceIcon = bounceRate < 0 ? faArrowDown : faArrowUp;
+    const bounceTxtColor = bounceRate < 0 ? "text-danger" : "text-success";
+
+
+    return (
+      <tr>
+        <a>
+        <th scope="row">{data[0]}</th>
+        <td>{views}</td>
+        <td>{returnValue}</td>
+        <td>
+          <CheckCircleIcon icon={bounceIcon} className={`${bounceTxtColor} me-3`} />
+          {Math.abs(bounceRate)}%
+        </td>
+        </a>
+      </tr>
+    );
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <Card border="light" className="shadow-sm">
+      <Card.Header>
+        <Row className="align-items-center">
+          <Col>
+            <h5>Active Rooms</h5>
+          </Col>
+          <Col className="text-end">
+            <Button variant="secondary" size="sm"><a href="/team#/requisitions">See all</a></Button>
+          </Col>
+        </Row>
+      </Card.Header>
+      <Table responsive className="align-items-center table-flush">
+        <thead className="thead-light">
+          <tr>
+            <th scope="col">Room Number</th>
+            <th scope="col">Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          {notes.map(dt => <TableRow key={dt} {...dt} />)}
+        </tbody>
+      </Table>
+    </Card>
+  );
+};
+
 
 export const PageVisitsTable = () => {
   const history = useHistory();

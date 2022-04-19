@@ -5,6 +5,8 @@ export const Routes = {
     Presentation: { path: "/dashboard/overview" },
     DashboardOverview: { path: "/" },
     HotelPortal: {path: "/hotelportal"},
+    CreatePortal: {path: "/createportal"},
+    ActiveRooms: {path: '/activerooms'},
     HotelPortalRooms: {path: "/hotelportalrooms/:floor"},
     DashboardTraffic: { path: "/dashboard/traffic-and-engagement" },
     DashboardProductAnalysis: { path: "/dashboard/product-analysis" },
