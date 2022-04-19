@@ -996,6 +996,69 @@ export const CreatePortal = () => {
   );
 };
 
+export const ActiveRooms = () => {
+  const[notes,setNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  const fetchData = () => {
+    fetch('/activerooms')
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setNotes(data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
+      });
+    console.log(notes);
+  };
+  const TableRow = (notes) => {
+  
+    console.log(notes);
+    var room = notes[0]+notes[1]+notes[2];
+    console.log(room);
+    console.log("ACTIVE ROOM");
+
+    return (
+      <ListGroup.Item className="px-0">
+        <Row className="align-items-center">
+          <Col className="ms--2">
+            <h4 className="h6 mb-0">
+              <a href="#!">Floor {room}</a>
+              <br/>
+              <Button variant="secondary" size="sm"><a href={"/volt-pro-react#/userportal/"+room}>view</a></Button>
+            </h4>
+          </Col>
+        </Row>
+      </ListGroup.Item>
+    );
+  };
+
+  
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <Card border="light" className="shadow-sm">
+      <Card.Header className="border-bottom border-light d-flex justify-content-between">
+        <h5 className="mb-0">Active Rooms</h5>
+        {/* <Button variant="secondary" size="sm"><a href="/team#/team">See all</a></Button> */}
+      </Card.Header>
+      <Card.Body>
+        <ListGroup className="list-group-flush list my--3">
+          {notes.map(dt => <a><TableRow key={dt} {...dt} /></a>)}
+        </ListGroup>
+      </Card.Body>
+    </Card>
+  );
+};
 
 
 export const TeamMembersWidget = () => {
