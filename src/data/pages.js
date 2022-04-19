@@ -118,6 +118,12 @@ export default [
     },
     {
         "id": uuidv4(),
+        "name": "User Sign In",
+        "image": SignInImg,
+        "link": Routes.UserSignIn
+    },
+    {
+        "id": uuidv4(),
         "name": "Sign Up",
         "image": SignUpImg,
         "link": Routes.Signup.path

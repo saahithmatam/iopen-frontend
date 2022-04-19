@@ -872,7 +872,7 @@ export const UserPortal = () => {
     }
     else{
       var vacancy = "Active"
-      var guestName = (notes.user)
+      var guestName = "("+ notes.user + ")"
       var statusColor = "success"
     }
 
@@ -898,12 +898,20 @@ export const UserPortal = () => {
               <MDBIcon icon="door-closed"/>
               </div>
             </Col>
+            <Col xs="auto">
+              <div>
+              <form action="/refreshuser" method="POST" id="refreshuser">
+                <input type="hidden" value={room} name="roominfo" id="roominfo"/>
+                <a href="/hotelportal#/activerooms"><Button type="submit" form="refreshuser">RESET</Button></a>
+              </form>
+              </div>
+            </Col>
             <Col className="ms-n2 mb-3">
               <h1 className="fs-6 fw-bold mb-1">
                 {notes.room}
               </h1>
               <h2 className="fs-6 fw-bold mb-1">
-                Status: {vacancy}({guestName})
+                Status: {vacancy}{guestName}
               </h2>
               <h3 className="fs-6 fw-bold mb-1">
                 Password: {notes.key}
@@ -941,6 +949,115 @@ export const UserPortal = () => {
       <Card.Body>
         <ListGroup className="list-group-flush list-group-timeline">
           <UserPortalItem />
+        </ListGroup>
+      </Card.Body>
+    </Card>
+  );
+};
+
+export const CustomerPortal = () => {
+
+  const CustomerPortalItem = () => {
+    const[notes,setNotes] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const roomParam = useParams();
+    const room = roomParam.room;
+    console.log(room);
+    console.log("Floor Number Above");
+    
+    const fetchData = () => {
+      fetch('/roominfo/'+room)
+        .then((response) => response.json())
+        .then((data) => {
+          setIsLoading(false);
+          setNotes(data);
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          setIsError(true);
+          console.log(error);
+        });
+    };
+    
+    console.log(notes);
+
+    if(notes.user === "No User"){
+      var vacancy = "Vacant"
+      var guestName = ""
+      var statusColor = "warning"
+    }
+    else{
+      var vacancy = "Active"
+      var guestName = "("+ notes.user + ")"
+      var statusColor = "success"
+    }
+
+    if(notes.motion === "True"){
+      var presence = "Occupied"
+    }
+    else{
+      var presence = "Unoccupied"
+    }
+    
+    useEffect(() => {
+      fetchData();
+    }, []);
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+    else{
+      return (
+        <ListGroup.Item className="border-o">
+          <Row className="ps-lg-1">
+            <Col xs="auto">
+              <div className={`icon-shape icon-xs icon-shape-${statusColor} rounded`}>
+              <MDBIcon icon="door-closed"/>
+              </div>
+            </Col>
+            <Col className="ms-n2 mb-3">
+              <h1 className="fs-6 fw-bold mb-1">
+                {notes.room}
+              </h1>
+              <h2 className="fs-6 fw-bold mb-1">
+                Status: {vacancy}{guestName}
+              </h2>
+              <h3 className="fs-6 fw-bold mb-1">
+                Password: {notes.key}
+              </h3>
+              <Card.Text className="mb-1">
+              <b>{presence}</b>
+              </Card.Text>
+              <Card.Text className="mb-1">
+              Door: {notes.door}
+              </Card.Text>
+              <Card.Text className="mb-1">
+              {notes.temperature} C
+              </Card.Text>
+              <div className="d-flex align-items-center">
+                <ClockIcon className="icon icon-xxs text-gray-400 me-1" />
+                <small>{notes.time}</small>
+              </div>
+            </Col>
+          </Row>
+        </ListGroup.Item>
+      );
+
+    }
+  };
+
+
+  
+  return (
+    <Card border="0" className="notification-card shadow">
+      <Card.Header className="d-flex align-items-center">
+        <h2 className="fs-5 fw-bold mb-0">
+          Customer Portal
+        </h2>
+      </Card.Header>
+      <Card.Body>
+        <ListGroup className="list-group-flush list-group-timeline">
+          <CustomerPortalItem />
         </ListGroup>
       </Card.Body>
     </Card>
