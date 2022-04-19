@@ -7,6 +7,7 @@ export const Routes = {
     HotelPortal: {path: "/hotelportal"},
     HotelPortalRooms: {path: "/hotelportalrooms/:floor"},
     DashboardTraffic: { path: "/dashboard/traffic-and-engagement" },
+    UserPortal: { path: "/userportal/:room"},
     DashboardProductAnalysis: { path: "/dashboard/product-analysis" },
     Kanban: { path: "/kanban" },
     Messages: { path: "/messages" },
