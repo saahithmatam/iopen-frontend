@@ -903,7 +903,7 @@ export const UserPortal = () => {
                 {notes.room}
               </h1>
               <h2 className="fs-6 fw-bold mb-1">
-                Status: {vacancy}{guestName}
+                Status: {vacancy}({guestName})
               </h2>
               <h3 className="fs-6 fw-bold mb-1">
                 Password: {notes.key}
@@ -1013,11 +1013,10 @@ export const ActiveRooms = () => {
         setIsError(true);
         console.log(error);
       });
-    console.log(notes);
   };
   const TableRow = (notes) => {
   
-    console.log(notes);
+
     var room = notes[0]+notes[1]+notes[2];
     console.log(room);
     console.log("ACTIVE ROOM");
