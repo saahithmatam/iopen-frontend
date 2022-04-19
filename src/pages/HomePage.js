@@ -26,6 +26,8 @@ import Pricing from "pages/examples/Pricing";
 import Billing from "pages/examples/Billing";
 import Invoice from "pages/examples/Invoice";
 import Signin from "pages/examples/Signin";
+import UserSignIn from "./components/UserSignIn";
+import CustomerPortalInfo from "./components/CustomerPortal";
 import Signup from "pages/examples/Signup";
 import ForgotPassword from "pages/examples/ForgotPassword";
 import ResetPassword from "pages/examples/ResetPassword";
@@ -145,6 +147,9 @@ export default () => (
   <Switch>
     <Route exact path={Routes.Presentation.path} component={Presentation} />
     <Route exact path={Routes.Signin.path} component={Signin} />
+    <Route exact path={Routes.UserSignIn.path} component={UserSignIn} />
+    <Route exact path={Routes.CustomerPortal.path} component={CustomerPortalInfo} />
+    <RouteWithSidebar exact path={Routes.UserPortal.path} component={UserPortalInfo} />
     <Route exact path={Routes.Signup.path} component={Signup} />
     <Route exact path={Routes.ForgotPassword.path} component={ForgotPassword} />
     <Route exact path={Routes.ResetPassword.path} component={ResetPassword} />
@@ -154,7 +159,6 @@ export default () => (
 
     {/* pages */}
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
-    <RouteWithSidebar exact path={Routes.UserPortal.path} component={UserPortalInfo} />
     <RouteWithSidebar exact path={Routes.HotelPortal.path} component={HotelPortalFloors} />
     <RouteWithSidebar exact path={Routes.CreatePortal.path} component={CreatedHotelPortal} />
     <RouteWithSidebar exact path={Routes.DashboardTraffic.path} component={DashboardTraffic} />
