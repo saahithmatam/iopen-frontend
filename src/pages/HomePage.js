@@ -9,6 +9,7 @@ import DashboardOverview from "pages/dashboard/DashboardOverview";
 import DashboardTraffic from "pages/dashboard/DashboardTraffic";
 import DashboardProductAnalysis from "pages/dashboard/DashboardProductAnalysis";
 import Kanban from 'pages/Kanban';
+import HotelPortalFloors from './components/HotelPortal';
 import Messages from "pages/Messages";
 import SingleMessage from "pages/SingleMessage";
 import Users from "pages/Users";
@@ -70,6 +71,7 @@ import Tabs from "pages/components/Tabs";
 import Tooltips from "pages/components/Tooltips";
 import Toasts from "pages/components/Toasts";
 import WidgetsComponent from "pages/components/Widgets";
+
 
 
 const RouteWithSidebar = ({ component: Component, ...rest }) => {
@@ -146,6 +148,7 @@ export default () => (
 
     {/* pages */}
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
+    <RouteWithSidebar exact path={Routes.HotelPortal.path} component={HotelPortalFloors} />
     <RouteWithSidebar exact path={Routes.DashboardTraffic.path} component={DashboardTraffic} />
     <RouteWithSidebar exact path={Routes.DashboardProductAnalysis.path} component={DashboardProductAnalysis} />
     <RouteWithSidebar exact path={Routes.Kanban.path} component={Kanban} />
