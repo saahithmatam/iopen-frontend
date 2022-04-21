@@ -4,7 +4,7 @@ import { MDBIcon} from 'mdbreact';
 import moment from 'moment-timezone';
 import CountUp from "react-countup";
 import { ArchiveIcon, ArrowDownIcon, ArrowNarrowRightIcon, ArrowUpIcon, CalendarIcon, ChartBarIcon, ChatAltIcon, CheckCircleIcon, CheckIcon, ChevronDownIcon, ChevronUpIcon, ClipboardListIcon, ClockIcon, DocumentTextIcon, DotsHorizontalIcon, EyeIcon, FlagIcon, FolderOpenIcon, GlobeIcon, MailIcon, MailOpenIcon, PaperClipIcon, PencilAltIcon, PresentationChartBarIcon, PresentationChartLineIcon, SaveIcon, ShareIcon, StarIcon, TrashIcon, UserAddIcon } from "@heroicons/react/solid";
-import { Col, Row, Card, Form, Badge, Image, Button, ListGroup, ProgressBar, Tooltip, Dropdown, OverlayTrigger, ButtonGroup } from 'react-bootstrap';
+import { Col, Row, Card, Form, InputGroup, Badge, Image, Button, ListGroup, ProgressBar, Tooltip, Dropdown, OverlayTrigger, ButtonGroup } from 'react-bootstrap';
 import { BarChartHorizontal, BarChart, PieChart, DognutChart, LineGraphChart, SalesValueChart, CustomersChart, RevenueChart, UsersChart, WeeklyReportChart } from "components/Charts";
 import { Link, useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -1076,6 +1076,23 @@ export const CreatePortal = () => {
             </div>
           </Col>
           <Col className="ms-n2 mb-3">
+          <Form className="mt-4" action="/createhotelportal" method="POST" id = "hotelform">
+                  <Form.Group controlId = "hotelform" className="mb-4">
+                    <Form.Label>Upload Portal</Form.Label>
+                    <InputGroup>
+                      <Form.Control type="file" name="myfile"/>
+                    </InputGroup>
+                  </Form.Group>
+                  <div className="d-grid">
+                    <Button variant="gray-800" type="submit" form="hotelform">
+                      Upload
+                    </Button>
+                  </div>
+                </Form>
+              {/* <Form>
+                <Form.Control autoFocus required type="file" action="/createhotelportal" method="POST" id = "hotelform" />
+                <Button variant="secondary" type="submit" value="Submit" form="hotelform"></Button>
+              </Form>
             <form action="/createhotelportal" method="POST" id="hotelform">
               <label class="btn btn-primary">
                 <input type ="file"id="myfile" name="myfile" title=" "/>
@@ -1085,9 +1102,7 @@ export const CreatePortal = () => {
                 {/* <a href="/volt-pro-react#/hotelportal">
                 Upload
                 </a> */}
-                Upload
-              </Button>
-            </form>
+
           </Col>
         </Row>
       </ListGroup.Item>
