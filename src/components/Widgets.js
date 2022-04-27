@@ -805,8 +805,17 @@ export const HotelPortalRooms = () => {
         <Row className="align-items-center">
           <Col className="ms--2">
             <h4 className="h6 mb-0">
-              <a href="#!">Room {room}</a>
-              <br/>
+              <a href="#!"><b>Room {room}</b></a>
+              <Form className="mt-4" action="/hkcheckin" method="POST" id ={room}>
+                  <Form.Group controlId = {room} className="mb-4">
+                    <InputGroup>
+                      <Form.Control type="hidden" name="myfile" value={room}/>
+                    </InputGroup>
+                  </Form.Group>
+                    <Button variant="gray-800" type="submit" form={room}>
+                      CHECK IN
+                    </Button>
+                </Form>
               <Button variant="secondary" size="sm"><a href={"/volt-pro-react#/userportal/"+room}>view</a></Button>
             </h4>
           </Col>
