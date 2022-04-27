@@ -806,16 +806,7 @@ export const HotelPortalRooms = () => {
           <Col className="ms--2">
             <h4 className="h6 mb-0">
               <a href="#!"><b>Room {room}</b></a>
-              <Form className="mt-4" action="/hkcheckin" method="POST" id ={room}>
-                  <Form.Group controlId = {room} className="mb-4">
-                    <InputGroup>
-                      <Form.Control type="hidden" name="myfile" value={room}/>
-                    </InputGroup>
-                  </Form.Group>
-                    <Button variant="gray-800" type="submit" form={room}>
-                      CHECK IN
-                    </Button>
-                </Form>
+              <br />
               <Button variant="secondary" size="sm"><a href={"/volt-pro-react#/userportal/"+room}>view</a></Button>
             </h4>
           </Col>
@@ -836,6 +827,76 @@ export const HotelPortalRooms = () => {
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light d-flex justify-content-between">
         <h5 className="mb-0">Room Selection</h5>
+        {/* <Button variant="secondary" size="sm"><a href="/team#/team">See all</a></Button> */}
+      </Card.Header>
+      <Card.Body>
+        <ListGroup className="list-group-flush list my--3">
+          {notes.map(dt => <a><TableRow key={dt} {...dt} /></a>)}
+        </ListGroup>
+      </Card.Body>
+    </Card>
+  );
+};
+
+export const HouseKeeping = () => {
+  const[notes,setNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  const fetchData = () => {
+    fetch('/housekeepingportal')
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setNotes(data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
+      });
+  };
+  const TableRow = (notes) => {
+  
+    console.log(notes);
+    var room = notes.room
+    var status = notes.status
+
+    return (
+      <ListGroup.Item className="px-0">
+        <Row className="align-items-center">
+          <Col className="ms--2">
+            <h4 className="h6 mb-0">
+              <a href="#!"><b>Room {room}</b></a>
+              <Form className="mt-4" action="/hkcheckin" method="POST" id ={room}>
+                  <Form.Group controlId = {room} className="mb-4">
+                    <InputGroup>
+                      <Form.Control type="hidden" name="roomnumber" value={room}/>
+                    </InputGroup>
+                  </Form.Group>
+                    <Button variant="gray-800" type="submit" form={room}>
+                      {status}
+                    </Button>
+                </Form>
+            </h4>
+          </Col>
+        </Row>
+      </ListGroup.Item>
+    );
+  };
+
+  
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <Card border="light" className="shadow-sm">
+      <Card.Header className="border-bottom border-light d-flex justify-content-between">
+        <h5 className="mb-0">Housekeeping Portal</h5>
         {/* <Button variant="secondary" size="sm"><a href="/team#/team">See all</a></Button> */}
       </Card.Header>
       <Card.Body>
@@ -925,6 +986,9 @@ export const UserPortal = () => {
               <h3 className="fs-6 fw-bold mb-1">
                 Password: {notes.key}
               </h3>
+              <Card.Text className="mb-1">
+              Housekeeping: {notes.housekeeping}
+              </Card.Text>
               <Card.Text className="mb-1">
               <b>{presence}</b>
               </Card.Text>
@@ -1034,6 +1098,9 @@ export const CustomerPortal = () => {
               <h3 className="fs-6 fw-bold mb-1">
                 Password: {notes.key}
               </h3>
+              <Card.Text className="mb-1">
+              Housekeeping: {notes.housekeeping}
+              </Card.Text>
               <Card.Text className="mb-1">
               <b>{presence}</b>
               </Card.Text>

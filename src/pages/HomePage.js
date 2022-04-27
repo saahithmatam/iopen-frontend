@@ -61,6 +61,7 @@ import Footer from 'components/Footer';
 import Accordion from "pages/components/Accordion";
 import HotelPortalRoomsList from "./components/HotelPortalRooms";
 import CreatedHotelPortal from "./components/CreatePortal";
+import HKportal from "./components/HouseKeeping";
 import UserPortalInfo from "./components/UserPortal";
 import ActiveRoomsDisplay from "./components/ActiveRooms";
 import Alerts from "pages/components/Alerts";
@@ -160,6 +161,7 @@ export default () => (
     {/* pages */}
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
     <RouteWithSidebar exact path={Routes.HotelPortal.path} component={HotelPortalFloors} />
+    <RouteWithSidebar exact path={Routes.HouseKeeping.path} component={HKportal} />
     <RouteWithSidebar exact path={Routes.CreatePortal.path} component={CreatedHotelPortal} />
     <RouteWithSidebar exact path={Routes.DashboardTraffic.path} component={DashboardTraffic} />
     <RouteWithSidebar exact path={Routes.DashboardProductAnalysis.path} component={DashboardProductAnalysis} />

@@ -144,6 +144,7 @@ export default (props = {}) => {
               <NavItem title="Hotel Portal" icon={ClipboardListIcon} link={Routes.HotelPortal.path} />
               <NavItem title="Active Rooms" icon={LocationMarkerIcon} link={Routes.ActiveRooms.path} />
               <NavItem title="Users List" icon={UsersIcon} link={Routes.Users.path} />
+              <NavItem title="House Keeping" icon={InformationCircleIcon} link={Routes.HouseKeeping.path} />
               {/* <NavItem title="Transactions" icon={CreditCardIcon} link={Routes.Transactions.path} />
               <NavItem title="Task List" icon={ClipboardListIcon} link={Routes.Tasks.path} /> */}
               <NavItem title="Settings" icon={CogIcon} link={Routes.Settings.path} />
