@@ -711,6 +711,73 @@ export const DognutChartWidget = (props) => {
   );
 };
 
+export const MembersWidget = () => {
+  const[notes,setNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const fetchData = () => {
+    fetch('/getteam')
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setNotes(data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
+      });
+  };
+  const TableRow = (notes) => {
+  
+    console.log(notes);
+    var floor = notes[0];
+    console.log(floor);
+
+
+    return (
+      <ListGroup.Item className="px-0">
+        <Row className="align-items-center">
+          <Col className="ms--2">
+            <h2 className="h6 mb-0">
+              First Name: {notes.firstname}
+            </h2>
+            <h2 className="h6 mb-0">
+              Last Name: {notes.lastname}
+            </h2>
+            <h4 className="h6 mb-0">
+              Position: {notes.position}
+            </h4>
+            <h6 className="h6 mb-0">
+              Password: {notes.password}
+            </h6>
+          </Col>
+        </Row>
+      </ListGroup.Item>
+    );
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <Card border="light" className="shadow-sm">
+      <Card.Header className="border-bottom border-light d-flex justify-content-between">
+        <h5 className="mb-0">Team Members</h5>
+        {/* <Button variant="secondary" size="sm"><a href="/team#/team">See all</a></Button> */}
+      </Card.Header>
+      <Card.Body>
+        <ListGroup className="list-group-flush list my--3">
+          {notes.map(dt => <a><TableRow key={dt} {...dt} /></a>)}
+        </ListGroup>
+      </Card.Body>
+    </Card>
+  );
+};
+
 export const HotelPortal = () => {
   const[notes,setNotes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -838,6 +905,76 @@ export const HotelPortalRooms = () => {
     </Card>
   );
   };
+};
+
+export const HouseKeepingPortal = () => {
+  const[notes,setNotes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  const fetchData = () => {
+    fetch('/housekeepingportal')
+      .then((response) => response.json())
+      .then((data) => {
+        setIsLoading(false);
+        setNotes(data);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+        console.log(error);
+      });
+  };
+  const TableRow = (notes) => {
+  
+    console.log(notes);
+    var room = notes.room
+    var status = notes.status
+
+    return (
+      <ListGroup.Item className="px-0">
+        <Row className="align-items-center">
+          <Col className="ms--2">
+            <h4 className="h6 mb-0">
+              <a href="#!"><b>Room {room}</b></a>
+              <Form className="mt-4" action="/hkusercheckin" method="POST" id ={room}>
+                  <Form.Group controlId = {room} className="mb-4">
+                    <InputGroup>
+                      <Form.Control type="hidden" name="roomnumber" value={room}/>
+                    </InputGroup>
+                  </Form.Group>
+                    <Button variant="gray-800" type="submit" form={room}>
+                      {status}
+                    </Button>
+                </Form>
+            </h4>
+          </Col>
+        </Row>
+      </ListGroup.Item>
+    );
+  };
+
+  
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <Card border="light" className="shadow-sm">
+      <Card.Header className="border-bottom border-light d-flex justify-content-between">
+        <h5 className="mb-0">Housekeeping Portal</h5>
+        {/* <Button variant="secondary" size="sm"><a href="/team#/team">See all</a></Button> */}
+      </Card.Header>
+      <Card.Body>
+        <ListGroup className="list-group-flush list my--3">
+          {notes.map(dt => <a><TableRow key={dt} {...dt} /></a>)}
+        </ListGroup>
+      </Card.Body>
+    </Card>
+  );
 };
 
 export const HouseKeeping = () => {
@@ -1271,48 +1408,77 @@ export const ActiveRooms = () => {
 
 
 export const TeamMembersWidget = () => {
-  const history = useHistory();
-
-  const goToUsers = () => {
-    history.push(Routes.Users.path);
-  }
-
-  const TeamMember = (props) => {
-    const { name, statusKey, image, icon: ButtonIcon = CalendarIcon, btnText } = props;
-    const status = {
-      online: { color: "success", label: "Online" },
-      inMeeting: { color: "warning", label: "In a meeting" },
-      offline: { color: "danger", label: "Offline" }
-    };
-
-    const statusColor = status[statusKey] ? status[statusKey].color : 'danger'
-      , statusLabel = status[statusKey] ? status[statusKey].label : 'Offline';
+  
+  const TeamMember = () => {
+    const [formFields, setFormFields] = useState([
+      { firstname: '', lastname: '', position: '', password: '' },
+    ])
+  
+    const handleFormChange = (event, index) => {
+      let data = [...formFields];
+      data[index][event.target.name] = event.target.value;
+      setFormFields(data);
+    }
+  
+    const submit = (e) => {
+      e.preventDefault();
+      console.log(formFields)
+    }
+  
+    const addFields = () => {
+      let object = {
+        name: '',
+        age: ''
+      }
+  
+      setFormFields([...formFields, object])
+    }
+  
+    const removeFields = (index) => {
+      let data = [...formFields];
+      data.splice(index, 1)
+      setFormFields(data)
+    }
+  
 
     return (
       <ListGroup.Item className="px-0">
-        <Row className="align-items-center">
-          <Col xs="auto">
-            <Card.Link href="#top" className="avatar">
-              <Image src={image} className="rounded m-0" />
-            </Card.Link>
-          </Col>
-          <Col xs="auto" className="ms--2">
-            <h4 className="h6 mb-0">
-              <Card.Link href={`#${name}`}>
-                {name}
-              </Card.Link>
-            </h4>
-            <div className="d-flex align-items-center">
-              <div className={`bg-${statusColor} dot rounded-circle me-1`} />
-              <small>{statusLabel}</small>
+        <form action="/createteam" method="POST" id="teamform">
+        {formFields.map((form, index) => {
+          return (
+            <div key={index}>
+              <input
+                name='firstname'
+                placeholder='First Name'
+                onChange={event => handleFormChange(event, index)}
+                value={form.firstname}
+              />
+              <input
+                name='lastname'
+                placeholder='Last Name'
+                onChange={event => handleFormChange(event, index)}
+                value={form.lastname}
+              />
+              <input
+                name='position'
+                placeholder='Position'
+                onChange={event => handleFormChange(event, index)}
+                value={form.position}
+              />
+              <input
+                name='password'
+                placeholder='Password'
+                onChange={event => handleFormChange(event, index)}
+                value={form.password}
+              />
+              <button onClick={() => removeFields(index)}>Remove</button>
             </div>
-          </Col>
-          <Col className="text-end">
-            <Button variant="secondary" size="sm" className="d-inline-flex align-items-center">
-              <ButtonIcon className="icon icon-xxs me-2" /> {btnText}
-            </Button>
-          </Col>
-        </Row>
+          )
+        })}
+      </form>
+      <button onClick={addFields}>Add More..</button>
+      <br />
+      <button type="submit" form="teamform">Submit</button>
       </ListGroup.Item>
     );
   };
@@ -1321,15 +1487,13 @@ export const TeamMembersWidget = () => {
     <Card border="0" className="shadow">
       <Card.Header className="border-bottom d-flex align-items-center justify-content-between">
         <h2 className="fs-5 fw-bold mb-0">
-          Team members
+          Create Team Members
         </h2>
-        <Button variant="primary" size="sm" onClick={goToUsers}>
-          See all
-        </Button>
       </Card.Header>
       <Card.Body>
         <ListGroup className="list-group-flush list my--3">
-          {teamMembers.map(tm => <TeamMember key={`team-member-${tm.id}`} {...tm} />)}
+          {/* {teamMembers.map(tm => <TeamMember key={`team-member-${tm.id}`} {...tm} />)} */}
+          <TeamMember />
         </ListGroup>
       </Card.Body>
     </Card>

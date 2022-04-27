@@ -94,10 +94,6 @@ export default () => {
             </Col>
 
             <Col xs={12} xxl={6} className="mb-4">
-              <TeamMembersWidget />
-            </Col>
-
-            <Col xs={12} xxl={6} className="mb-4">
               <ProgressTrackWidget />
             </Col>
 
