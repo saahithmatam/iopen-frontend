@@ -736,20 +736,19 @@ export const MembersWidget = () => {
 
 
     return (
+      <Card className="shadow">
+      <Card.Body className="d-flex flex-row align-items-center flex-0 border-bottom">
       <ListGroup.Item className="px-0">
         <Row className="align-items-center">
           <Col className="ms--2">
-            <h2 className="h6 mb-0">
-              First Name: {notes.firstname}
-            </h2>
-            <h2 className="h6 mb-0">
-              Last Name: {notes.lastname}
-            </h2>
-            <h4 className="h6 mb-0">
-              Position: {notes.position}
-            </h4>
+            <h3 className="h3 mb-0">
+              {notes.firstname} {notes.lastname}
+            </h3>
+            <h7 className="h7 mb-0">
+              {notes.position}
+            </h7>
             <h6 className="h6 mb-0">
-              Password: {notes.password}
+              {notes.password}
             </h6>
           </Col>
           <Form className="mt-4" action="/employeedeletion" method="POST" id ={notes.password}>
@@ -767,6 +766,8 @@ export const MembersWidget = () => {
                 </Form>
         </Row>
       </ListGroup.Item>
+      </Card.Body>
+      </Card>
     );
   };
 
