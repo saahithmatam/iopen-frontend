@@ -1459,7 +1459,7 @@ export const TeamMembersWidget = () => {
         <form action="/createteam" method="POST" id="teamform">
         {formFields.map((form, index) => {
           return (
-            <div key={index}>
+            <div className="d-grid" key={index}>
               <input
                 name='firstname'
                 placeholder='First Name'
@@ -1484,14 +1484,16 @@ export const TeamMembersWidget = () => {
                 onChange={event => handleFormChange(event, index)}
                 value={form.password}
               />
-              <button onClick={() => removeFields(index)}>Remove</button>
+              <Button variant="secondary" onClick={() => removeFields(index)}>Delete</Button>
             </div>
           )
         })}
       </form>
-      <button onClick={addFields}>Add More..</button>
+      <div className="d-grid">
+      <Button variant="gray-800" onClick={addFields}>Add More..</Button>
+      </div>
       <br />
-      <button type="submit" form="teamform">Submit</button>
+      <Button type="submit" variant="secondary" form="teamform">Submit</Button>
       </ListGroup.Item>
     );
   };
