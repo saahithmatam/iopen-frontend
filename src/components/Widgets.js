@@ -820,9 +820,10 @@ export const HotelPortalRooms = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  if (isLoading) {
+  if (notes.length === 0) {
     return <div>Loading...</div>;
   }
+  else{
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light d-flex justify-content-between">
@@ -836,6 +837,7 @@ export const HotelPortalRooms = () => {
       </Card.Body>
     </Card>
   );
+  };
 };
 
 export const HouseKeeping = () => {
