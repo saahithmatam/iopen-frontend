@@ -8,6 +8,7 @@ import { Col, Row, Card, Form, InputGroup, Badge, Image, Button, ListGroup, Prog
 import { BarChartHorizontal, BarChart, PieChart, DognutChart, LineGraphChart, SalesValueChart, CustomersChart, RevenueChart, UsersChart, WeeklyReportChart } from "components/Charts";
 import { Link, useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import './select.css';
 
 import Profile2 from "assets/img/team/profile-picture-2.jpg";
 import ProfileCover from "assets/img/profile-cover.jpg";
@@ -1473,12 +1474,17 @@ export const TeamMembersWidget = () => {
                 onChange={event => handleFormChange(event, index)}
                 value={form.lastname}
               />
-              <input
+              {/* <input
                 name='position'
                 placeholder='Position'
                 onChange={event => handleFormChange(event, index)}
                 value={form.position}
-              />
+              /> */}
+              <select id="position" name="position">
+                  <option value="Admin">Admin</option>
+                  <option value="Member">Member</option>
+                  <option value="HouseKeeper">HouseKeeper</option>
+              </select>
               <input
                 name='password'
                 placeholder='Password'
@@ -1505,7 +1511,7 @@ export const TeamMembersWidget = () => {
         <h2 className="fs-5 fw-bold mb-0">
           Create Team Members
         </h2>
-        <h6>For the position, please choose between "Admin", "Member", and "HouseKeeper".</h6>
+        <h6>Add your colleagues and Click Submit in order to Onboard them onto our platform.</h6>
       </Card.Header>
       <Card.Body>
         <ListGroup className="list-group-flush list my--3">

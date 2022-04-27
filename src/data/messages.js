@@ -22,7 +22,7 @@ export default [
         "read": false,
         "favorite": true,
         "image": Profile3,
-        "sender": "Bonnie Green",
+        "sender": "Admin Portal",
         "timeSent": "10:23 AM",
         "message": "Long time no see - Can we help you set up email forwarding? We’ve noticed you haven’t set up email forwarding and we could help you"
     },

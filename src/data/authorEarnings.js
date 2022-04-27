@@ -20,7 +20,7 @@ export default [
     {
         "id": uuidv4(),
         "image": Profile3,
-        "name": "Bonnie Green",
+        "name": "Admin Portal",
         "jobTitle": "Web Developer",
         "salary": 1355,
     },

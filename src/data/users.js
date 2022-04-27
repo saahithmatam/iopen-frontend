@@ -22,7 +22,7 @@ export default [
         "image": Profile3,
         "verified": true,
         "status": "active",
-        "name": "Bonnie Green",
+        "name": "Admin Portal",
         "email": "example@themesberg.com",
         "dateCreated": moment().subtract(2, "days").format("DD MMM YYYY"),
     },

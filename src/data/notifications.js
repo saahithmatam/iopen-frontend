@@ -65,7 +65,7 @@ export const productNotifications = [
         "time": moment().subtract(1, "minute"),
         "icon": ShoppingCartIcon,
         "iconBg": "purple",
-        "message": "Bonnie Green just checked into Room 503.",
+        "message": "Admin Portal just checked into Room 503.",
     },
     {
         "id": uuidv4(),

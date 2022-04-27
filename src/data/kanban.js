@@ -11,7 +11,7 @@ import ThemesbergMockup from "assets/img/themesberg-mockup.jpg";
 export const Members = [
     { "id": uuidv4(), "name": "Ryan Tompson", "image": Profile1 },
     { "id": uuidv4(), "name": "Alexander Smith", "image": Profile2 },
-    { "id": uuidv4(), "name": "Bonnie Green", "image": Profile3 },
+    { "id": uuidv4(), "name": "Admin Portal", "image": Profile3 },
     { "id": uuidv4(), "name": "Scott Anderson", "image": Profile4 },
 ];
 
