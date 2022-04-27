@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import moment from "moment-timezone";
 import { BellIcon, CogIcon, InboxIcon, MenuAlt1Icon, SearchIcon, SupportIcon, UserCircleIcon } from "@heroicons/react/solid";
 import { LogoutIcon } from "@heroicons/react/outline";
-import { Row, Col, Nav, Form, Image, Button, Navbar, Dropdown, Container, ListGroup, InputGroup } from 'react-bootstrap';
+import {Link} from "react-router-dom";
+import { Row, Col, Nav, Form, Card, Image, Button, Navbar, Dropdown, Container, ListGroup, InputGroup } from 'react-bootstrap';
 
 import { userNotifications } from "data/notifications";
 import Profile3 from "assets/img/team/profile-picture-3.jpg";
@@ -97,30 +98,16 @@ export default (props) => {
             <Dropdown as={Nav.Item} className="ms-lg-3">
               <Dropdown.Toggle as={Nav.Link} className="pt-1 px-0">
                 <div className="media d-flex align-items-center">
-                  <Image src={Profile3} className="avatar rounded-circle" />
                   <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                    <span className="mb-0 font-small fw-bold text-gray-900">Bonnie Green</span>
+                    <span className="mb-0 font-small fw-bold text-gray-900">Admin Portal</span>
                   </div>
                 </div>
               </Dropdown.Toggle>
               <Dropdown.Menu className="dashboard-dropdown dropdown-menu-end mt-2 py-1">
-                <Dropdown.Item className="d-flex align-items-center">
-                  <UserCircleIcon className="dropdown-icon text-gray-400 me-2" /> My Profile
-                </Dropdown.Item>
-                <Dropdown.Item className="d-flex align-items-center">
-                  <CogIcon className="dropdown-icon text-gray-400 me-2" /> Settings
-                </Dropdown.Item>
-                <Dropdown.Item className="d-flex align-items-center">
-                  <InboxIcon className="dropdown-icon text-gray-400 me-2" /> Messages
-                </Dropdown.Item>
-                <Dropdown.Item className="d-flex align-items-center">
-                  <SupportIcon className="dropdown-icon text-gray-400 me-2" /> Support
-                </Dropdown.Item>
-
                 <Dropdown.Divider as="div" className="my-1" />
-
-                <Dropdown.Item className="d-flex align-items-center">
-                  <LogoutIcon className="dropdown-icon text-danger me-2" /> Logout
+                <Dropdown.Item as={Link} to="https://www.google.com/" className="d-flex align-items-center">
+                <LogoutIcon className="dropdown-icon text-danger me-2" />
+                  Logout
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

@@ -23,7 +23,7 @@ export default () => {
                   <div className="avatar avatar-lg mx-auto mb-3">
                     <Image src={Profile3} className="rounded-circle" />
                   </div>
-                  <h3>Bonnie Green</h3>
+                  <h3>Admin Portal</h3>
                   <p className="text-gray">Better to be safe than sorry.</p>
                 </div>
                 <Form className="mt-5">

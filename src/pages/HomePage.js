@@ -30,6 +30,7 @@ import Signin from "pages/examples/Signin";
 import UserSignIn from "./components/UserSignIn";
 import CustomerPortalInfo from "./components/CustomerPortal";
 import Signup from "pages/examples/Signup";
+import IncorrectPassword from "pages/examples/IncorrectPassword";
 import ForgotPassword from "pages/examples/ForgotPassword";
 import ResetPassword from "pages/examples/ResetPassword";
 import Lock from "pages/examples/Lock";
@@ -149,6 +150,7 @@ const RouteWithSidebar = ({ component: Component, ...rest }) => {
 export default () => (
   <Switch>
     <Route exact path={Routes.Presentation.path} component={Presentation} />
+    <Route exact path={Routes.IncorrectPassword.path} component={IncorrectPassword} />
     <Route exact path={Routes.HouseKeepingPortal.path} component={HKuserportal} />
     <Route exact path={Routes.Signin.path} component={Signin} />
     <Route exact path={Routes.UserSignIn.path} component={UserSignIn} />

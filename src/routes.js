@@ -29,6 +29,7 @@ export const Routes = {
     Pricing: { path: "/examples/pricing" },
     Billing: { path: "/examples/billing" },
     Invoice: { path: "/examples/invoice" },
+    IncorrectPassword: { path: "/examples/incorrectpassword"},
     Signin: { path: "/examples/sign-in" },
     UserSignIn: { path: "/usersignin"},
     Signup: { path: "/examples/sign-up" },

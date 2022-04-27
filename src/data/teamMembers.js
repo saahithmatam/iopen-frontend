@@ -27,7 +27,7 @@ export default [
     {
         "id": uuidv4(),
         "image": Profile3,
-        "name": "Bonnie Green",
+        "name": "Admin Portal",
         "statusKey": "offline",
         "icon": ChatAltIcon,
         "btnText": "Invite"

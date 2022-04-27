@@ -14,7 +14,7 @@ export default [
     },
     {
         "id": uuidv4(),
-        "name": "Bonnie Green",
+        "name": "Admin Portal",
         "position": "Accountant",
         "office": "Tokyo",
         "age": 53,
