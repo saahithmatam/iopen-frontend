@@ -1021,8 +1021,8 @@ export const HouseKeeping = () => {
         <Row className="align-items-center">
           <Col className="ms--2">
             <h4 className="h6 mb-0">
-              <a href="#!"><b>Room {room}</b></a>
               <Form className="mt-4" action="/hkcheckin" method="POST" id ={room}>
+              <b>Room {room}</b>
                   <Form.Group controlId = {room} className="mb-4">
                     <InputGroup>
                       <Form.Control type="hidden" name="roomnumber" value={room}/>
