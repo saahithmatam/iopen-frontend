@@ -752,6 +752,19 @@ export const MembersWidget = () => {
               Password: {notes.password}
             </h6>
           </Col>
+          <Form className="mt-4" action="/employeedeletion" method="POST" id ={notes.password}>
+                  <Form.Group controlId = {notes.password} className="mb-4">
+                    <InputGroup>
+                      <Form.Control type="hidden" name="firstname" value={notes.firstname}/>
+                    </InputGroup>
+                    <InputGroup>
+                      <Form.Control type="hidden" name="password" value={notes.password}/>
+                    </InputGroup>
+                  </Form.Group>
+                    <Button variant="gray-800" type="submit" form={notes.password}>
+                      Delete
+                    </Button>
+                </Form>
         </Row>
       </ListGroup.Item>
     );
@@ -1489,6 +1502,7 @@ export const TeamMembersWidget = () => {
         <h2 className="fs-5 fw-bold mb-0">
           Create Team Members
         </h2>
+        <h6>For the position, please choose between "Admin", "Member", and "HouseKeeper".</h6>
       </Card.Header>
       <Card.Body>
         <ListGroup className="list-group-flush list my--3">

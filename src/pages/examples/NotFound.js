@@ -21,15 +21,14 @@ export default () => {
                   <Image src={NotFoundImage} className="img-fluid w-75" />
                 </Card.Link>
                 <h1 className="mt-5">
-                  Page not <span className="fw-bolder">found</span>
+                  Authentication <span className="fw-bolder">Error</span>
                 </h1>
                 <p className="lead my-4">
-                  Oops! Looks like you followed a bad link. If you think this is a
-                  problem with us, please tell us.
+                  Oops! Looks like you entered an incorrect firstname,lastname, or password, Please remember the password is case sensitive.
                 </p>
-                <Button as={Link} variant="gray-800" className="d-inline-flex align-items-center justify-content-center mb-4" to={Routes.DashboardOverview.path}>
+                <Button as={Link} variant="gray-800" className="d-inline-flex align-items-center justify-content-center mb-4" to={Routes.Signin.path}>
                   <ChevronLeftIcon className="icon icon-xs me-2" />
-                  Go back home
+                  Try Again
                 </Button>
               </div>
             </Col>
