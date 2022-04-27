@@ -15,6 +15,7 @@ import HotelPortalFloors from './components/HotelPortal';
 import Messages from "pages/Messages";
 import SingleMessage from "pages/SingleMessage";
 import Users from "pages/Users";
+import HKuserportal from "./components/HouseKeepingPortal";
 import Transactions from "pages/Transactions";
 import Tasks from "pages/Tasks";
 import Settings from "pages/Settings";
@@ -60,6 +61,7 @@ import Footer from 'components/Footer';
 
 import Accordion from "pages/components/Accordion";
 import HotelPortalRoomsList from "./components/HotelPortalRooms";
+import Team from "./components/TeamMembers";
 import CreatedHotelPortal from "./components/CreatePortal";
 import HKportal from "./components/HouseKeeping";
 import UserPortalInfo from "./components/UserPortal";
@@ -147,6 +149,7 @@ const RouteWithSidebar = ({ component: Component, ...rest }) => {
 export default () => (
   <Switch>
     <Route exact path={Routes.Presentation.path} component={Presentation} />
+    <Route exact path={Routes.HouseKeepingPortal.path} component={HKuserportal} />
     <Route exact path={Routes.Signin.path} component={Signin} />
     <Route exact path={Routes.UserSignIn.path} component={UserSignIn} />
     <Route exact path={Routes.CustomerPortal.path} component={CustomerPortalInfo} />
@@ -161,6 +164,7 @@ export default () => (
     {/* pages */}
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
     <RouteWithSidebar exact path={Routes.HotelPortal.path} component={HotelPortalFloors} />
+    <RouteWithSidebar exact path={Routes.Team.path} component={Team} />
     <RouteWithSidebar exact path={Routes.HouseKeeping.path} component={HKportal} />
     <RouteWithSidebar exact path={Routes.CreatePortal.path} component={CreatedHotelPortal} />
     <RouteWithSidebar exact path={Routes.DashboardTraffic.path} component={DashboardTraffic} />

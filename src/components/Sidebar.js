@@ -139,7 +139,7 @@ export default (props = {}) => {
               <CollapsableNavItem eventKey="dashboard/" title="Dashboard" icon={ChartBarIcon}>
                 <NavItem title="Overview" link={Routes.DashboardOverview.path} />
               </CollapsableNavItem>
-
+              <NavItem title="Team" icon={UsersIcon} link={Routes.Team.path} />
               <NavItem title="Create Portal" icon={ViewGridIcon} link={Routes.CreatePortal.path} />
               <NavItem title="Hotel Portal" icon={ClipboardListIcon} link={Routes.HotelPortal.path} />
               <NavItem title="Active Rooms" icon={LocationMarkerIcon} link={Routes.ActiveRooms.path} />
