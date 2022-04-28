@@ -9,8 +9,8 @@ import { PageVisitsTable } from "components/Tables";
 export default () => {
   return (
     <>
-      <div className="py-4">
-        <h2><b>Dashboard</b></h2>
+      <div className="py-3">
+        {/* <h2 class="red-text" color="red"><b>Dashboard</b></h2> */}
         <Dropdown>
           {/* <Dropdown.Toggle as={Button} variant="gray-800" className="d-inline-flex align-items-center me-2">
             <PlusIcon className="icon icon-xs me-2" />New Task

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import { AdjustmentsIcon, CheckIcon, CogIcon, HomeIcon, PlusIcon, SearchIcon } from "@heroicons/react/solid";
+import { AdjustmentsIcon, CheckIcon, CogIcon, HomeIcon,UsersIcon, PlusIcon, SearchIcon } from "@heroicons/react/solid";
 import { Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown } from 'react-bootstrap';
 
 import { UsersTable } from "components/Tables";
@@ -109,8 +109,8 @@ export default () => {
             <Breadcrumb.Item><HomeIcon className="icon icon-xs" /></Breadcrumb.Item>
             <Breadcrumb.Item active>Users List</Breadcrumb.Item>
           </Breadcrumb>
-          <h4>Active Users</h4>
-          <p className="mb-0">Your daily user analytics.</p>
+          <h4><UsersIcon /></h4>
+          <p className="mb-0">Active Users</p>
         </div>
         {/* <div className="btn-toolbar mb-2 mb-md-0">
           <Button variant="gray-800" size="sm" className="d-inline-flex align-items-center">
