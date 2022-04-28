@@ -824,10 +824,10 @@ export const HotelPortal = () => {
             <h4 className="h6 mb-0">
               <a href="#!">Floor {notes[0]}</a>
               <br/>
-              <form action = "/floorinfo" id={notes[0]} method="POST">
-              <input type="hidden" value={notes[0]} name="floorinfo" />
+              {/* <form action = "/floorinfo" id={notes[0]} method="POST">
+              <input type="hidden" value={notes[0]} name="floorinfo" /> */}
               <Button type = "submit" form={notes[0]} variant="secondary" size="sm"><a href={"/volt-pro-react#/hotelportalrooms/"+floor}>view</a></Button>
-              </form>
+              {/* </form> */}
             </h4>
           </Col>
         </Row>
@@ -1021,8 +1021,8 @@ export const HouseKeeping = () => {
         <Row className="align-items-center">
           <Col className="ms--2">
             <h4 className="h6 mb-0">
-              <a href="#!"><b>Room {room}</b></a>
               <Form className="mt-4" action="/hkcheckin" method="POST" id ={room}>
+              <b>Room {room}</b>
                   <Form.Group controlId = {room} className="mb-4">
                     <InputGroup>
                       <Form.Control type="hidden" name="roomnumber" value={room}/>

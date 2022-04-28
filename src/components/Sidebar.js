@@ -147,7 +147,7 @@ export default (props = {}) => {
               <NavItem title="House Keeping" icon={InformationCircleIcon} link={Routes.HouseKeeping.path} />
               {/* <NavItem title="Transactions" icon={CreditCardIcon} link={Routes.Transactions.path} />
               <NavItem title="Task List" icon={ClipboardListIcon} link={Routes.Tasks.path} /> */}
-              <NavItem title="Settings" icon={CogIcon} link={Routes.Settings.path} />
+              {/* <NavItem title="Settings" icon={CogIcon} link={Routes.Settings.path} /> */}
               {/* <NavItem title="Calendar" icon={CalendarIcon} link={Routes.Calendar.path} />
               <NavItem title="Map" icon={LocationMarkerIcon} link={Routes.Map.path} />
               <NavItem title="Widgets" icon={TemplateIcon} link={Routes.Widgets.path} /> */}
