@@ -112,7 +112,7 @@ export default () => {
           <h4>Active Users</h4>
           <p className="mb-0">Your daily user analytics.</p>
         </div>
-        <div className="btn-toolbar mb-2 mb-md-0">
+        {/* <div className="btn-toolbar mb-2 mb-md-0">
           <Button variant="gray-800" size="sm" className="d-inline-flex align-items-center">
             <PlusIcon className="icon icon-xs me-2" /> New User
           </Button>
@@ -120,12 +120,12 @@ export default () => {
             <Button variant="outline-gray-600" size="sm">Share</Button>
             <Button variant="outline-gray-600" size="sm">Export</Button>
           </ButtonGroup>
-        </div>
+        </div> */}
       </div>
 
       <div className="table-settings mb-4">
         <Row className="justify-content-between align-items-center">
-          <Col xs={9} lg={8} className="d-md-flex">
+          {/* <Col xs={9} lg={8} className="d-md-flex">
             <InputGroup className="me-2 me-lg-3 fmxw-300">
               <InputGroup.Text>
                 <SearchIcon className="icon icon-xs" />
@@ -144,8 +144,8 @@ export default () => {
               <option value="pending">Pending</option>
               <option value="suspended">Suspended</option>
             </Form.Select>
-          </Col>
-          <Col xs={3} lg={4} className="d-flex justify-content-end">
+          </Col> */}
+          {/* <Col xs={3} lg={4} className="d-flex justify-content-end">
             <ButtonGroup>
               <Dropdown className="me-1">
                 <Dropdown.Toggle split as={Button} variant="link" className="text-dark m-0 p-1">
@@ -179,7 +179,7 @@ export default () => {
                 </Dropdown.Menu>
               </Dropdown>
             </ButtonGroup>
-          </Col>
+          </Col> */}
         </Row>
       </div>
 

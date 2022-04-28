@@ -14,7 +14,6 @@ import Profile2 from "assets/img/team/profile-picture-2.jpg";
 import ProfileCover from "assets/img/profile-cover.jpg";
 
 import { Routes } from "routes";
-import teamMembers from "data/teamMembers";
 import countries from "data/countries";
 import authorEarnings from "data/authorEarnings";
 import { productNotifications } from "data/notifications";
@@ -1131,7 +1130,46 @@ export const UserPortal = () => {
               </div>
             </Col>
             <Col className="ms-n2 mb-3">
-              <h1 className="fs-6 fw-bold mb-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="weather-card one">
+                            <div class="top">
+                                <div class="wrapper">
+                                    <h1 class="heading">{notes.room}</h1>
+                                    <h3 class="location"> Status: {vacancy}{guestName}</h3>
+                                    <p class="temp">
+                                        <span class="temp-value">{notes.temperature}</span>
+                                        <span class="deg">0</span>
+                                        <a href="javascript:;"><span class="temp-type">C</span></a>
+                                        <h3 class="location">{presence}</h3>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <div class="wrapper">
+                                    <ul class="forecast">
+                                        <a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
+                                        <li class="active">
+                                            <span class="date">Housekeeping</span>
+                                            <span class="lnr lnr-sun condition">
+                                                <span class="temp">{notes.housekeeping}</span>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="date">Last Updated</span>
+                                            <span class="lnr lnr-cloud condition">
+                                                <span class="temp">{notes.time}</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+            </div>
+              {/* <h1 className="fs-6 fw-bold mb-1">
                 {notes.room}
               </h1>
               <h2 className="fs-6 fw-bold mb-1">
@@ -1155,7 +1193,7 @@ export const UserPortal = () => {
               <div className="d-flex align-items-center">
                 <ClockIcon className="icon icon-xxs text-gray-400 me-1" />
                 <small>{notes.time}</small>
-              </div>
+              </div> */}
             </Col>
           </Row>
         </ListGroup.Item>
@@ -1243,7 +1281,46 @@ export const CustomerPortal = () => {
               </div>
             </Col>
             <Col className="ms-n2 mb-3">
-              <h1 className="fs-6 fw-bold mb-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="weather-card one">
+                            <div class="top">
+                                <div class="wrapper">
+                                    <h1 class="heading">{notes.room}</h1>
+                                    <h3 class="location"> Status: {vacancy}{guestName}</h3>
+                                    <p class="temp">
+                                        <span class="temp-value">{notes.temperature}</span>
+                                        <span class="deg">0</span>
+                                        <a href="javascript:;"><span class="temp-type">C</span></a>
+                                        <h3 class="location">{presence}</h3>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <div class="wrapper">
+                                    <ul class="forecast">
+                                        <a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
+                                        <li class="active">
+                                            <span class="date">Housekeeping</span>
+                                            <span class="lnr lnr-sun condition">
+                                                <span class="temp">{notes.housekeeping}</span>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="date">Last Updated</span>
+                                            <span class="lnr lnr-cloud condition">
+                                                <span class="temp">{notes.time}</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+            </div>
+              {/* <h1 className="fs-6 fw-bold mb-1">
                 {notes.room}
               </h1>
               <h2 className="fs-6 fw-bold mb-1">
@@ -1267,7 +1344,7 @@ export const CustomerPortal = () => {
               <div className="d-flex align-items-center">
                 <ClockIcon className="icon icon-xxs text-gray-400 me-1" />
                 <small>{notes.time}</small>
-              </div>
+              </div> */}
             </Col>
           </Row>
         </ListGroup.Item>
