@@ -1098,6 +1098,15 @@ export const UserPortal = () => {
       var guestName = "("+ notes.user + ")"
       var statusColor = "success"
     }
+    if(notes.housekeeping === "INACTIVE"){
+      var hk = ""
+    }
+    else if(notes.housekeeping === "ACTIVE"){
+      var hk = "* Housekeeping Inside *"
+    }
+    else{
+      var hk =""
+    }
 
     if(notes.motion === "True"){
       var presence = "Occupied"
@@ -1114,21 +1123,9 @@ export const UserPortal = () => {
     }
     else{
       return (
-        <ListGroup.Item className="border-o">
-          <Row className="ps-lg-1">
-            <Col xs="auto">
-              <div className={`icon-shape icon-xs icon-shape-${statusColor} rounded`}>
-              <MDBIcon icon="door-closed"/>
-              </div>
-            </Col>
-            <Col xs="auto">
-              <div>
-              <form action="/refreshuser" method="POST" id="refreshuser">
-                <input type="hidden" value={room} name="roominfo" id="roominfo"/>
-                <a href="/hotelportal#/activerooms"><Button type="submit" form="refreshuser">RESET</Button></a>
-              </form>
-              </div>
-            </Col>
+        // <ListGroup.Item className="border-o">
+        <>
+            <Row>
             <Col className="ms-n2 mb-3">
             <div class="container">
                 <div class="row">
@@ -1143,6 +1140,12 @@ export const UserPortal = () => {
                                         <span class="deg">0</span>
                                         <a href="javascript:;"><span class="temp-type">C</span></a>
                                         <h3 class="location">{presence}</h3>
+                                        <div>
+                                      <form action="/refreshuser" method="POST" id="refreshuser">
+                                        <input type="hidden" value={room} name="roominfo" id="roominfo"/>
+                                        <a href="/hotelportal#/activerooms"><Button type="submit" form="refreshuser">RESET</Button></a>
+                                      </form>
+                                      </div>
                                     </p>
                                 </div>
                             </div>
@@ -1151,14 +1154,11 @@ export const UserPortal = () => {
                                     <ul class="forecast">
                                         <a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
                                         <li class="active">
-                                            <span class="date">Housekeeping</span>
-                                            <span class="lnr lnr-sun condition">
-                                                <span class="temp">{notes.housekeeping}</span>
-                                            </span>
+                                            <span class="date">{hk}</span>
                                         </li>
                                         <li>
-                                            <span class="date">Last Updated</span>
-                                            <span class="lnr lnr-cloud condition">
+                                            <span class="date"></span>
+                                            <span >
                                                 <span class="temp">{notes.time}</span>
                                             </span>
                                         </li>
@@ -1195,8 +1195,9 @@ export const UserPortal = () => {
                 <small>{notes.time}</small>
               </div> */}
             </Col>
-          </Row>
-        </ListGroup.Item>
+            </Row>
+        </>
+        // </ListGroup.Item>
       );
 
     }
@@ -1205,16 +1206,16 @@ export const UserPortal = () => {
 
   
   return (
-    <Card border="0" className="notification-card shadow">
+    <Card border="0" className="notification-card shadow" style={{height: "initial"}}>
       <Card.Header className="d-flex align-items-center">
         <h2 className="fs-5 fw-bold mb-0">
           User Portal
         </h2>
       </Card.Header>
       <Card.Body>
-        <ListGroup className="list-group-flush list-group-timeline">
+        {/* <ListGroup className="list-group-flush list-group-borderless"> */}
           <UserPortalItem />
-        </ListGroup>
+        {/* </ListGroup> */}
       </Card.Body>
     </Card>
   );
@@ -1257,6 +1258,15 @@ export const CustomerPortal = () => {
       var guestName = "("+ notes.user + ")"
       var statusColor = "success"
     }
+    if(notes.housekeeping === "INACTIVE"){
+      var hk = ""
+    }
+    else if(notes.housekeeping === "ACTIVE"){
+      var hk = "* Housekeeping Inside *"
+    }
+    else{
+      var hk =""
+    }
 
     if(notes.motion === "True"){
       var presence = "Occupied"
@@ -1273,81 +1283,74 @@ export const CustomerPortal = () => {
     }
     else{
       return (
-        <ListGroup.Item className="border-o">
-          <Row className="ps-lg-1">
-            <Col xs="auto">
-              <div className={`icon-shape icon-xs icon-shape-${statusColor} rounded`}>
-              <MDBIcon icon="door-closed"/>
-              </div>
-            </Col>
-            <Col className="ms-n2 mb-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="weather-card one">
-                            <div class="top">
-                                <div class="wrapper">
-                                    <h1 class="heading">{notes.room}</h1>
-                                    <h3 class="location"> Status: {vacancy}{guestName}</h3>
-                                    <p class="temp">
-                                        <span class="temp-value">{notes.temperature}</span>
-                                        <span class="deg">0</span>
-                                        <a href="javascript:;"><span class="temp-type">C</span></a>
-                                        <h3 class="location">{presence}</h3>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="bottom">
-                                <div class="wrapper">
-                                    <ul class="forecast">
-                                        <a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
-                                        <li class="active">
-                                            <span class="date">Housekeeping</span>
-                                            <span class="lnr lnr-sun condition">
-                                                <span class="temp">{notes.housekeeping}</span>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="date">Last Updated</span>
-                                            <span class="lnr lnr-cloud condition">
-                                                <span class="temp">{notes.time}</span>
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-              </div>
-            </div>
-              {/* <h1 className="fs-6 fw-bold mb-1">
-                {notes.room}
-              </h1>
-              <h2 className="fs-6 fw-bold mb-1">
-                Status: {vacancy}{guestName}
-              </h2>
-              <h3 className="fs-6 fw-bold mb-1">
-                Password: {notes.key}
-              </h3>
-              <Card.Text className="mb-1">
-              Housekeeping: {notes.housekeeping}
-              </Card.Text>
-              <Card.Text className="mb-1">
-              <b>{presence}</b>
-              </Card.Text>
-              <Card.Text className="mb-1">
-              Door: {notes.door}
-              </Card.Text>
-              <Card.Text className="mb-1">
-              {notes.temperature} C
-              </Card.Text>
-              <div className="d-flex align-items-center">
-                <ClockIcon className="icon icon-xxs text-gray-400 me-1" />
-                <small>{notes.time}</small>
-              </div> */}
-            </Col>
-          </Row>
-        </ListGroup.Item>
+         // <ListGroup.Item className="border-o">
+         <>
+         <Row>
+         <Col className="ms-n2 mb-3">
+         <div class="container">
+             <div class="row">
+                 <div class="col">
+                     <div class="weather-card one">
+                         <div class="top">
+                             <div class="wrapper">
+                                 <h1 class="heading">{notes.room}</h1>
+                                 <h3 class="location"> Status: {vacancy}{guestName}</h3>
+                                 <p class="temp">
+                                     <span class="temp-value">{notes.temperature}</span>
+                                     <span class="deg">0</span>
+                                     <a href="javascript:;"><span class="temp-type">C</span></a>
+                                     <h3 class="location">{presence}</h3>
+                                 </p>
+                             </div>
+                         </div>
+                         <div class="bottom">
+                             <div class="wrapper">
+                                 <ul class="forecast">
+                                     <a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
+                                     <li class="active">
+                                         <span class="date">{hk}</span>
+                                     </li>
+                                     <li>
+                                         <span class="date"></span>
+                                         <span >
+                                             <span class="temp">{notes.time}</span>
+                                         </span>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+           </div>
+         </div>
+           {/* <h1 className="fs-6 fw-bold mb-1">
+             {notes.room}
+           </h1>
+           <h2 className="fs-6 fw-bold mb-1">
+             Status: {vacancy}{guestName}
+           </h2>
+           <h3 className="fs-6 fw-bold mb-1">
+             Password: {notes.key}
+           </h3>
+           <Card.Text className="mb-1">
+           Housekeeping: {notes.housekeeping}
+           </Card.Text>
+           <Card.Text className="mb-1">
+           <b>{presence}</b>
+           </Card.Text>
+           <Card.Text className="mb-1">
+           Door: {notes.door}
+           </Card.Text>
+           <Card.Text className="mb-1">
+           {notes.temperature} C
+           </Card.Text>
+           <div className="d-flex align-items-center">
+             <ClockIcon className="icon icon-xxs text-gray-400 me-1" />
+             <small>{notes.time}</small>
+           </div> */}
+         </Col>
+         </Row>
+     </>
       );
 
     }
@@ -1356,16 +1359,16 @@ export const CustomerPortal = () => {
 
   
   return (
-    <Card border="0" className="notification-card shadow">
+    <Card border="0" className="notification-card shadow" style={{height: "initial"}}>
       <Card.Header className="d-flex align-items-center">
         <h2 className="fs-5 fw-bold mb-0">
           Customer Portal
         </h2>
       </Card.Header>
       <Card.Body>
-        <ListGroup className="list-group-flush list-group-timeline">
+        {/* <ListGroup className="list-group-flush list-group-borderless"> */}
           <CustomerPortalItem />
-        </ListGroup>
+        {/* </ListGroup> */}
       </Card.Body>
     </Card>
   );
