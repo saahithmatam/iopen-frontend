@@ -374,7 +374,7 @@ export const UsersTable = (props) => {
   return (
     <Card border="0" className="table-wrapper table-responsive shadow">
       <Card.Body>
-        <div className="d-flex mb-3">
+        {/* <div className="d-flex mb-3">
           <Form.Select className="fmxw-200" disabled={disabledBulkMenu} value={bulkOption} onChange={bulkActionChange}>
             <option value="bulk_action">Bulk Action</option>
             <option value="send_email">Send Email</option>
@@ -384,7 +384,7 @@ export const UsersTable = (props) => {
           <Button variant="secondary" size="sm" className="ms-3" disabled={disabledBulkMenu} onClick={applyBulkAction}>
             Apply
           </Button>
-        </div>
+        </div> */}
         <Table hover className="user-table align-items-center">
           <thead>
             <tr>

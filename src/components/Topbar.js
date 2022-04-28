@@ -1,56 +1,47 @@
 
-import React, { useState } from "react";
-import moment from "moment-timezone";
-import { BellIcon, CogIcon, InboxIcon, MenuAlt1Icon, SearchIcon, SupportIcon, UserCircleIcon } from "@heroicons/react/solid";
+import React from "react";
+// import moment from "moment-timezone";
+import { MenuAlt1Icon, SearchIcon} from "@heroicons/react/solid";
 import { LogoutIcon } from "@heroicons/react/outline";
 import {Link} from "react-router-dom";
-import { Row, Col, Nav, Form, Card, Image, Button, Navbar, Dropdown, Container, ListGroup, InputGroup } from 'react-bootstrap';
+import { Nav, Form, Button, Navbar, Dropdown, Container, InputGroup } from 'react-bootstrap';
 
-import { userNotifications } from "data/notifications";
-import Profile3 from "assets/img/team/profile-picture-3.jpg";
 
 
 export default (props) => {
-  const [notifications, setNotifications] = useState(userNotifications);
-  const allNotificationsRead = notifications.reduce((acc, notif) => acc && notif.read, true);
-  const bellIconClasses = !allNotificationsRead ? "unread" : "";
 
-  const markNotificationsAsRead = () => {
-    setTimeout(() => {
-      setNotifications(notifications.map(n => ({ ...n, read: true })));
-    }, 400);
-  };
+
 
   const toggleContracted = () => props.toggleContracted && props.toggleContracted();
 
-  const Notification = (props) => {
-    const { link, sender, image, time, message, read = false } = props;
-    const readClassName = read ? "" : "text-danger";
-    const receiveTime = moment(time).fromNow();
+  // const Notification = (props) => {
+  //   const { link, sender, image, time, message, read = false } = props;
+  //   const readClassName = read ? "" : "text-danger";
+  //   const receiveTime = moment(time).fromNow();
 
-    return (
-      <ListGroup.Item action href={link} className="list-group-item-action border-bottom">
-        <Row className="align-items-center">
-          <Col xs="auto">
-            <Image src={image} className="avatar-md rounded" />
-          </Col>
-          <Col className="ps-0 ms-2">
-            <div className="d-flex justify-content-between align-items-center">
-              <div>
-                <h4 className="h6 mb-0 text-small">{sender}</h4>
-              </div>
-              <div className="text-end">
-                <small className={readClassName}>
-                  {receiveTime}
-                </small>
-              </div>
-            </div>
-            <p className="font-small mt-1 mb-0">{message}</p>
-          </Col>
-        </Row>
-      </ListGroup.Item>
-    );
-  };
+  //   return (
+  //     <ListGroup.Item action href={link} className="list-group-item-action border-bottom">
+  //       <Row className="align-items-center">
+  //         <Col xs="auto">
+  //           <Image src={image} className="avatar-md rounded" />
+  //         </Col>
+  //         <Col className="ps-0 ms-2">
+  //           <div className="d-flex justify-content-between align-items-center">
+  //             <div>
+  //               <h4 className="h6 mb-0 text-small">{sender}</h4>
+  //             </div>
+  //             <div className="text-end">
+  //               <small className={readClassName}>
+  //                 {receiveTime}
+  //               </small>
+  //             </div>
+  //           </div>
+  //           <p className="font-small mt-1 mb-0">{message}</p>
+  //         </Col>
+  //       </Row>
+  //     </ListGroup.Item>
+  //   );
+  // };
 
   return (
     <Navbar expand variant="dark" className="navbar-top navbar-dashboard ps-0 pe-2 pb-0">
@@ -76,7 +67,7 @@ export default (props) => {
             </Form>
           </div>
           <Nav className="align-items-center">
-            <Dropdown as={Nav.Item} onToggle={markNotificationsAsRead} >
+            {/* <Dropdown as={Nav.Item} onToggle={markNotificationsAsRead} >
               <Dropdown.Toggle as={Nav.Link} className={`text-dark notification-bell ${bellIconClasses}`}>
                 <BellIcon className="icon icon-sm bell-shake text-gray-900" />
               </Dropdown.Toggle>
@@ -93,7 +84,7 @@ export default (props) => {
                   </Dropdown.Item>
                 </ListGroup>
               </Dropdown.Menu>
-            </Dropdown>
+            </Dropdown> */}
 
             <Dropdown as={Nav.Item} className="ms-lg-3">
               <Dropdown.Toggle as={Nav.Link} className="pt-1 px-0">

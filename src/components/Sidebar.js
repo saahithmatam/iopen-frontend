@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 import { CSSTransition } from 'react-transition-group';
-import { ArchiveIcon, CalendarIcon, ChartBarIcon, ChartPieIcon, ChevronRightIcon, ClipboardListIcon, CogIcon, CreditCardIcon, InformationCircleIcon, LocationMarkerIcon, NewspaperIcon, TableIcon, TemplateIcon, UsersIcon, ViewGridIcon, XIcon } from "@heroicons/react/solid";
+import { ChartBarIcon, ChevronRightIcon, ClipboardListIcon, InformationCircleIcon, LocationMarkerIcon, UsersIcon, ViewGridIcon, XIcon } from "@heroicons/react/solid";
 import { LogoutIcon } from "@heroicons/react/outline";
 import { Nav, Badge, Image, Button, Dropdown, Navbar, Collapse, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
