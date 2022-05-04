@@ -1,46 +1,28 @@
-# Getting Started with Create React App
+# IOPEN Frontend Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**GITHUB LINK:https://github.com/saahithmatam/iopen-frontend**
 
-## Available Scripts
+**GITHUB INSTRUCTIONS(READ ME):**
 
-In the project directory, you can run:
+1. Clone the repository code with the “iopen-volt” branch.
+2. Download the required installments using “npm install”.
+3. Remember to run your backend server before following the next instruction.
+4. Run “npm start” in the terminal, this will enable your frontend web application.
 
-### `npm start`
+**GETTING STARTED:**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**1. routes.js:** This file has all of the page componentsassociated with their domain path.
+**2. HomePage.js:** This file contains all of the routesof the literal page components
+    declaring it to its associated path in **routes.js.
+3. /pages/components(folder):** This folder contains allof the JS pages associated within
+    the application.
+**4. Widgets.js(/src/components):** This file contains allof the widget components which are
+    imported within each page in the folder above. The widget names are generally
+    associated with the literal meaning of its purpose.
+**5. Tables.js(/src/components):** This file contains allof the Table components which are
+    imported within each page in the folder above. The Table names are generally
+    associated with the literal meaning of its purpose.
+**6. Users.js:** This file holds the functionality of theuserlist page associated with the userlist
+    widget.
+**7. FINAL:** You may now associate the function calls tothe backend within the backend’s
+    **App.js.**
